@@ -41,8 +41,8 @@ export default tseslint.config(
                 },
             ],
             'jsx-quotes': ['warn', 'prefer-single'],
-            'react/jsx-indent': ['warn', 2],
-            'react/jsx-indent-props': ['error', 2],
+            'react/jsx-indent': ['warn', 4],
+            'react/jsx-indent-props': ['error', 4],
             'react/jsx-max-props-per-line': [
                 'warn',
                 { maximum: 1, when: 'always' },
@@ -51,7 +51,7 @@ export default tseslint.config(
             'react/jsx-closing-bracket-location': ['warn', 'tag-aligned'],
             'no-multiple-empty-lines': [
                 'warn',
-                { max: 0, maxEOF: 0, maxBOF: 0 },
+                { max: 1, maxEOF: 0, maxBOF: 0 },
             ],
         },
     },
