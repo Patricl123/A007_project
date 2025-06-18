@@ -7,6 +7,8 @@ export default defineConfig({
         alias: {
             app: '/src/app',
             shared: '/src/shared',
+            widgets: '/src/widgets',
+            pages: '/src/pages',
         },
     },
 });
