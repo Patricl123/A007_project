@@ -1,0 +1,17 @@
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #1f2937; /* текст: gray-800 */
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.error {
+    color: #ef4444; /* red-500 */
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
