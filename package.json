@@ -28,6 +28,7 @@
         "classnames": "^2.5.1",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
+        "react-hook-form": "^7.58.1",
         "react-router-dom": "^7.6.2",
         "sass": "^1.89.2",
         "scss": "^0.2.4",
