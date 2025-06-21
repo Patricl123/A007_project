@@ -1,13 +1,14 @@
 import { type FC } from 'react';
+import { AnalysisBlock } from 'widgets/analysisBlock';
+import { HistoryBlock } from 'widgets/historyBlock';
+import { ProfileBlock } from 'widgets/profileBlock';
 
 export const ProfilePage: FC = () => {
     return (
         <div>
-            <h1>Profile Page</h1>
-            <p>
-                This is the profile page where you can view and manage your
-                profile information.
-            </p>
+            <ProfileBlock />
+            <AnalysisBlock />
+            <HistoryBlock />
         </div>
     );
 };

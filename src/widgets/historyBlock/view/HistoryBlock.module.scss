@@ -1,0 +1,51 @@
+.wrapper {
+    width: 850px;
+    margin: 30px auto;
+    border: 1px solid $border;
+    padding: 30px 40px;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .title {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .history {
+        display: flex;
+        flex-direction: column;
+        width: 770px;
+        margin: 0 auto;
+
+        .item {
+            padding: 25px 20px;
+            border: 1px solid $border;
+            border-radius: $border-radius;
+            background-color: $white-grey;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+
+            .left {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+
+                .percentage {
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+}

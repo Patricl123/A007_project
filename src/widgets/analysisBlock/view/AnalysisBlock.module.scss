@@ -1,0 +1,28 @@
+.wrapper {
+    width: 850px;
+    margin: 30px auto;
+    border: 1px solid $border;
+    padding: 30px 40px;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .title {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+
+    .textBlock {
+        width: 770px;
+        margin: 0 auto;
+        border: 1px solid $border-violet;
+        padding: 20px;
+        border-radius: $border-radius;
+        background: $light-violet;
+        line-height: 28px;
+    }
+}
