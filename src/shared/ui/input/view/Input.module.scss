@@ -1,0 +1,35 @@
+.input {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+
+    &.medium {
+        width: 200px;
+    }
+
+    &.short {
+        width: 120px;
+    }
+
+    &.long {
+        width: 320px;
+    }
+
+    &.fullwidth {
+        width: 100%; // 👈 добавил
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+    }
+
+    &.disabled {
+        background-color: #f5f5f5;
+        border-color: #ddd;
+        cursor: not-allowed;
+    }
+}

@@ -12,7 +12,6 @@ const tagMap = {
     base: 'p',
     small: 'p',
     smallXs: 'p',
-    button: 'p',
 };
 
 export const Typography: FC<TypographyProps> = ({
