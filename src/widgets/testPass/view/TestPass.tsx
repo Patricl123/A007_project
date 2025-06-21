@@ -80,14 +80,8 @@ export const TestPass = () => {
         } else {
             navigation.setCurrentIndex(0);
         }
-    }, [
-        isProgressLoaded,
-        testData,
-        progressData,
-        answerManagement,
-        navigation,
-        timer,
-    ]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isProgressLoaded, testData, progressData]);
 
     const progressStateRef = useRef({
         answers: answerManagement.answers,
