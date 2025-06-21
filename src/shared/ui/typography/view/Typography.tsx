@@ -30,6 +30,5 @@ export const Typography: FC<TypographyProps> = ({
     ]
         .filter(Boolean)
         .join(' ');
-
     return <Tag className={classes}>{children}</Tag>;
 };

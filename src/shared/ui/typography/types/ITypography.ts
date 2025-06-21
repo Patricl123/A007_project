@@ -19,5 +19,5 @@ export interface TypographyProps {
     weight?: TypographyWeight;
     color?: TypographyColor;
     className?: string;
-    children?: ReactNode;
+    children: ReactNode;
 }
