@@ -40,7 +40,7 @@ export default tseslint.config(
                     message: 'Убери - console.log()',
                 },
             ],
-            'jsx-quotes': ['warn', 'prefer-single'],
+            'jsx-quotes': ['warn', 'prefer-double'],
             'react/jsx-indent': ['warn', 4],
             'react/jsx-indent-props': ['error', 4],
             'react/jsx-max-props-per-line': [
