@@ -12,7 +12,7 @@ export type TypographyVariant =
     | 'smallXs';
 
 export type TypographyWeight = 'bold' | 'semibold' | 'regular';
-export type TypographyColor = 'muted' | 'secondary' | 'white';
+export type TypographyColor = 'muted' | 'secondary' | 'white' | 'gradient';
 
 export interface TypographyProps {
     variant: TypographyVariant;

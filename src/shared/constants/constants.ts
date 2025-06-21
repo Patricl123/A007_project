@@ -7,4 +7,5 @@ export const routes = {
     profile: '/profile',
     questions: '/questions',
     login: '/login',
+    testMore: '/test/:testId',
 };

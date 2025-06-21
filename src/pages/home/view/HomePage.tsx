@@ -1,5 +1,3 @@
-import { type FC } from 'react';
-
-export const HomePage: FC = () => {
-    return <>home</>;
+export const HomePage = () => {
+    return <div>Home</div>;
 };

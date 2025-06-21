@@ -1,28 +1,18 @@
-// Loader.jsx
 import styles from './Loader.module.scss';
 
 export const Loader = () => {
     return (
         <div className={styles.loader}>
-            <div className={styles.container}>
-                <div className={styles.outerOrbit}></div>
-                <div className={styles.middleOrbit}></div>
-                <div className={styles.orbit}>
-                    <div className={styles.core}></div>
-                    <div
-                        className={`${styles.electron} ${styles.electron1}`}
-                    ></div>
-                    <div
-                        className={`${styles.electron} ${styles.electron2}`}
-                    ></div>
-                    <div
-                        className={`${styles.electron} ${styles.electron3}`}
-                    ></div>
-                    <div
-                        className={`${styles.electron} ${styles.electron4}`}
-                    ></div>
+            <div className={styles.loaderContent}>
+                <div className={styles.mathSymbols}>
+                    <span className={styles.symbol}>∫</span>
+                    <span className={styles.symbol}>π</span>
+                    <span className={styles.symbol}>√</span>
+                    <span className={styles.symbol}>∑</span>
                 </div>
-                <div className={styles.glow}></div>
+                <div className={styles.progressBar}>
+                    <div className={styles.progress}></div>
+                </div>
             </div>
         </div>
     );
