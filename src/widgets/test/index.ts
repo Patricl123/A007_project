@@ -1,1 +1,1 @@
-export { TestIntroduction } from './view/testIntroduction/TestIntroduction';
+export { TestIntroduction } from './view/testIntroduction/view/TestIntroduction';

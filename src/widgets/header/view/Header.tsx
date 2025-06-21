@@ -24,7 +24,7 @@ export const Header: FC = () => {
             </div>
             <div className={styles.routes}>
                 <div
-                    onClick={() => handleClick('tests')}
+                    onClick={() => handleClick('test')}
                     className={classNames(styles.item, {
                         [styles.active]: active === 'tests',
                     })}

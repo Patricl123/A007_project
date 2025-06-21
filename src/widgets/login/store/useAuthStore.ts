@@ -1,39 +1,42 @@
-// features/auth-by-username/model/useAuthStore.ts
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { login as loginApi } from '../api/login';
 import type { AuthState } from '../types/types';
 
-export const useAuthStore = create<AuthState>((set) => ({
-    isAuth: false,
-    accessToken: null,
-    refreshToken: null,
-    username: null,
-    role: null,
-
-    async login({ username, password }) {
-        const data = await loginApi({ username, password });
-
-        set({
-            isAuth: true,
-            accessToken: data.access,
-            refreshToken: data.refresh,
-            username,
-            role: data.user.role,
-        });
-
-        localStorage.setItem('refreshToken', data.refresh);
-    },
-
-    logout() {
-        set({
+export const useAuthStore = create<AuthState>()(
+    persist(
+        (set) => ({
             isAuth: false,
             accessToken: null,
             refreshToken: null,
             username: null,
-        });
+            role: null,
 
-        localStorage.removeItem('refreshToken');
-    },
+            async login({ username, password }) {
+                const data = await loginApi({ username, password });
 
-    setAccessToken: (accessToken: string) => set({ accessToken }),
-}));
+                set({
+                    isAuth: true,
+                    accessToken: data.access,
+                    refreshToken: data.refresh,
+                    username,
+                    role: data.user.role,
+                });
+            },
+
+            logout() {
+                set({
+                    isAuth: false,
+                    accessToken: null,
+                    refreshToken: null,
+                    username: null,
+                });
+            },
+
+            setAccessToken: (accessToken: string) => set({ accessToken }),
+        }),
+        {
+            name: 'auth-storage',
+        },
+    ),
+);
