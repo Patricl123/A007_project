@@ -1,6 +1,5 @@
-import type { FC } from 'react';
 import { TestIntroduction } from 'widgets/test';
 
-export const TestsPage: FC = () => {
+export const TestPage = () => {
     return <TestIntroduction />;
 };

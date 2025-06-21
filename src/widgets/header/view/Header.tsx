@@ -29,9 +29,9 @@ export const Header: FC = () => {
             </Link>
             <div className={styles.routes}>
                 <div
-                    onClick={() => handleClick('tests')}
+                    onClick={() => handleClick('test')}
                     className={classNames(styles.item, {
-                        [styles.active]: active === 'tests',
+                        [styles.active]: active === 'test',
                     })}
                 >
                     <Calculator width={17} />

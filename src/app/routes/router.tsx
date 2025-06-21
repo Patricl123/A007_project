@@ -3,8 +3,8 @@ import { Layout } from '../layout/Layout';
 import { createBrowserRouter } from 'react-router-dom';
 import { HomePage } from 'pages/home';
 import { LoginPage } from 'pages/loginPage';
-import { TestsPage } from 'pages/testsPage';
 import { ProfilePage } from 'pages/profile';
+import { TestsPage } from 'pages/testsPage';
 
 export const router = () =>
     createBrowserRouter([
@@ -24,7 +24,7 @@ export const router = () =>
                     element: <LoginPage />,
                 },
                 {
-                    path: routes.tests,
+                    path: routes.test,
                     element: <TestsPage />,
                 },
                 {
