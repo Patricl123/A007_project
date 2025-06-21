@@ -1,8 +1,8 @@
 .input {
     padding: 8px 12px;
     font-size: 14px;
-    border: 1px solid #dde2eb;
     border-radius: 4px;
+    border: 1px solid $border;
     transition: border-color 0.2s;
     padding-left: 46px;
 
@@ -29,8 +29,8 @@
     }
 
     &.disabled {
-        background-color: #f5f5f5;
-        border-color: #ddd;
+        background-color: var(--border);
+        border-color: var(--border);
         cursor: not-allowed;
     }
 }

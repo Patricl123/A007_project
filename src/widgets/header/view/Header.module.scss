@@ -7,7 +7,7 @@
     align-items: center;
     padding-left: 70px;
     padding-right: 70px;
-    background-color: #fff;
+    background-color: $white;
 
     .logoWrapper {
         height: 38px;
@@ -39,12 +39,15 @@
             transition: 0.1s ease-in;
 
             &:hover {
-                background-color: rgb(236, 236, 236);
+                background-color: $white-hover;
             }
 
             &.active {
-                background-color: #17a7ef;
-                color: white;
+                background: $gradient;
+                color: $white !important;
+                p {
+                    color: $white;
+                }
             }
         }
     }
