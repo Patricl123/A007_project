@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import styles from './TestIntroduction.module.scss';
-import { Container, Typography } from 'shared/ui';
+import { Button, Container, Loader, Typography } from 'shared/ui';
 import { Calculator, Target } from 'lucide-react';
 import { DropdownPicker } from '../../dropdownPicker/view/DropdownPicker';
+import { useAllTopicsQuery } from 'widgets/test/api/useTestQuery';
 
 export const TestIntroduction = () => {
+    const { data: topics, isLoading } = useAllTopicsQuery();
+
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
     const [selectedValues, setSelectedValues] = useState<{
@@ -15,15 +18,8 @@ export const TestIntroduction = () => {
     });
 
     const dropdownOptions: { [key: string]: string[] } = {
-        '1': [
-            'Алгебра',
-            'Геометрия',
-            'Тригонометрия',
-            'Математический анализ',
-            'Статистика',
-            'Дискретная математика',
-        ],
-        '2': ['Начальный', 'Базовый', 'Средний', 'Продвинутый', 'Экспертный'],
+        '1': topics ? topics.map((topic) => topic.name) : [],
+        '2': ['Начальный', 'Средний', 'Продвинутый'],
     };
 
     const data = [
@@ -54,6 +50,10 @@ export const TestIntroduction = () => {
         }));
         setOpenDropdown(null);
     };
+
+    if (isLoading) {
+        return <Loader />;
+    }
 
     return (
         <Container>
@@ -96,7 +96,11 @@ export const TestIntroduction = () => {
                             получите объяснение.
                         </Typography>
                     </div>
-                    <button className={styles.button}>Начать тест</button>
+                    <Button variant="default">
+                        <Typography variant="small" color="white">
+                            Пройти тест
+                        </Typography>
+                    </Button>
                 </div>
             </div>
         </Container>
