@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import styles from './TestIntroduction.module.scss';
-import { Container } from 'shared/ui';
+import { Container, Typography } from 'shared/ui';
 import { Calculator, Target, ChevronDown } from 'lucide-react';
+import { useOutsideClick } from 'shared/hooks/useOutsideClick';
 
 export const TestIntroduction = () => {
-    const [openDropdown, setOpenDropdown] = useState(null);
-    const [selectedValues, setSelectedValues] = useState({
-        1: 'Выберите тему...',
-        2: 'Выберите уровень...',
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const [selectedValues, setSelectedValues] = useState<{
+        [key: string]: string;
+    }>({
+        '1': 'Выберите тему...',
+        '2': 'Выберите уровень...',
     });
 
-    const dropdownOptions = {
-        1: [
+    const dropdownOptions: { [key: string]: string[] } = {
+        '1': [
             'Алгебра',
             'Геометрия',
             'Тригонометрия',
@@ -19,31 +22,35 @@ export const TestIntroduction = () => {
             'Статистика',
             'Дискретная математика',
         ],
-        2: ['Начальный', 'Базовый', 'Средний', 'Продвинутый', 'Экспертный'],
+        '2': ['Начальный', 'Базовый', 'Средний', 'Продвинутый', 'Экспертный'],
     };
 
     const data = [
         {
-            id: 1,
+            id: '1',
             title: 'Выберите тему',
             subtile: 'Определите область математики для изучения',
             icon: <Target />,
-            actionValue: selectedValues[1],
+            actionValue: selectedValues['1'],
         },
         {
-            id: 2,
+            id: '2',
             title: 'Уровень сложности',
             subtile: 'Выберите подходящий уровень для ваших знаний',
             icon: <Calculator />,
-            actionValue: selectedValues[2],
+            actionValue: selectedValues['2'],
         },
     ];
 
-    const handleDropdownToggle = (id) => {
+    const dropDownRef = useOutsideClick<HTMLDivElement>(() =>
+        setOpenDropdown(null),
+    );
+
+    const handleDropdownToggle = (id: string) => {
         setOpenDropdown(openDropdown === id ? null : id);
     };
 
-    const handleOptionSelect = (id, option) => {
+    const handleOptionSelect = (id: string, option: string) => {
         setSelectedValues((prev) => ({
             ...prev,
             [id]: option,
@@ -55,24 +62,32 @@ export const TestIntroduction = () => {
         <Container>
             <div className={styles.introduction}>
                 <div className={styles.textPart}>
-                    <h2>Генератор тестов</h2>
-                    <p>
+                    <Typography variant="h2">Генератор тестов</Typography>
+                    <Typography variant="base">
                         Выберите тему и уровень сложности для создания
                         персонализированного теста
-                    </p>
+                    </Typography>
                 </div>
                 <div className={styles.choosePart}>
                     {data.map((elem) => (
                         <div key={elem.id} className={styles.pickerContainer}>
                             <div className={styles.textArea}>
                                 <div className={styles.title}>
-                                    {elem.icon} <h3>{elem.title}</h3>
+                                    {elem.icon}{' '}
+                                    <Typography variant="h4">
+                                        {elem.title}
+                                    </Typography>
                                 </div>
                                 <div className={styles.subtitle}>
-                                    <p>{elem.subtile}</p>
+                                    <Typography variant="base">
+                                        {elem.subtile}
+                                    </Typography>
                                 </div>
                             </div>
-                            <div className={styles.dropdownWrapper}>
+                            <div
+                                className={styles.dropdownWrapper}
+                                ref={dropDownRef}
+                            >
                                 <div
                                     className={`${styles.toggle} ${openDropdown === elem.id ? styles.active : ''}`}
                                     onClick={() =>
@@ -117,12 +132,12 @@ export const TestIntroduction = () => {
                         />
                     </div>
                     <div className={styles.textValue}>
-                        <h3>Готовы начать?</h3>
-                        <p>
+                        <Typography variant="h3">Готовы начать?</Typography>
+                        <Typography variant="base">
                             ИИ сгенерирует персонализированные вопросы на основе
                             выбранной темы и уровня. После каждого ответа вы
                             получите объяснение.
-                        </p>
+                        </Typography>
                     </div>
                     <button className={styles.button}>Начать тест</button>
                 </div>

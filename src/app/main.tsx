@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import 'app/styles/global.scss';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './styles/global.scss';
+import './styles/normalize.scss';
 
 const queryClient = new QueryClient({
     defaultOptions: {
