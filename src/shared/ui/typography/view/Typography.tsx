@@ -1,7 +1,7 @@
+import React from 'react';
 import styles from './Typography.module.scss';
 import type { FC } from 'react';
 import type { TypographyProps } from '../types/ITypography';
-import React from 'react';
 
 const tagMap = {
     h1: 'h1',
@@ -13,7 +13,7 @@ const tagMap = {
     base: 'p',
     small: 'p',
     smallXs: 'p',
-};
+} as const;
 
 export const Typography: FC<TypographyProps> = ({
     variant,
