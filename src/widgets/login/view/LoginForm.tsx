@@ -1,7 +1,7 @@
 import React, { useState, type FC } from 'react';
 import { useAuthStore } from '../store/useAuthStore';
 import styles from './LoginForm.module.scss';
-import { Input, Label } from 'shared/ui';
+import { Input, Label, Button, Typography } from 'shared/ui';
 import { KeyRound, Lock, LogIn } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -31,13 +31,21 @@ export const LoginForm: FC = () => {
                 <div className={styles.textBox}>
                     <div className={styles.title}>
                         <LogIn color="black" />
-                        <h3>Вход в систему</h3>
+                        <Typography variant="h4" weight="bold">
+                            Вход в систему
+                        </Typography>
                     </div>
-                    <p>Войдите в свой аккаунт, чтобы сохранять прогресс</p>
+                    <Typography variant="base" color="secondary">
+                        Войдите в свой аккаунт, чтобы сохранять прогресс
+                    </Typography>
                 </div>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.field}>
-                        <Label>Email</Label>
+                        <Label>
+                            <Typography variant="h5" weight="semibold">
+                                Логин
+                            </Typography>
+                        </Label>
                         <Input
                             type="text"
                             fullWidth={true}
@@ -49,7 +57,11 @@ export const LoginForm: FC = () => {
                         </Input>
                     </div>
                     <div className={styles.field}>
-                        <Label>Пароль</Label>
+                        <Label>
+                            <Typography variant="h5" weight="semibold">
+                                Пароль
+                            </Typography>
+                        </Label>
                         <Input
                             type="password"
                             fullWidth={true}
@@ -60,7 +72,7 @@ export const LoginForm: FC = () => {
                             <Lock color="grey" />
                         </Input>
                     </div>
-                    <button type="submit">Войти</button>
+                    <Button type="submit">Войти</Button>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
                 </form>
             </div>

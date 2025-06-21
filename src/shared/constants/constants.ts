@@ -2,7 +2,7 @@ export const routes = {
     home: '/',
     subjects: '/subjects',
     tests: '/tests',
-    questions: '/questions',
     profile: '/profile',
+    questions: '/questions',
     login: '/login',
 };

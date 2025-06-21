@@ -5,6 +5,7 @@ import logo from 'shared/assets/images/mathGenieLogo.png';
 import classNames from 'classnames';
 import { useAuthStore } from 'widgets/login/store/useAuthStore';
 import { useNavigate } from 'react-router-dom';
+import { Typography } from 'shared/ui';
 
 export const Header: FC = () => {
     const [active, setActive] = useState<string | null>(null);
@@ -29,7 +30,7 @@ export const Header: FC = () => {
                     })}
                 >
                     <Calculator width={15} />
-                    <p>Тесты</p>
+                    <Typography variant="base">Тесты</Typography>
                 </div>
                 <div
                     onClick={() => handleClick('questions')}
@@ -38,7 +39,7 @@ export const Header: FC = () => {
                     })}
                 >
                     <MessageSquare width={15} />
-                    <p>Вопросы ИИ</p>
+                    <Typography variant="base">Вопросы ИИ</Typography>
                 </div>
                 {isAuth && (
                     <div
@@ -48,13 +49,15 @@ export const Header: FC = () => {
                         })}
                     >
                         <User width={15} />
-                        <p>Привет, {username}</p>
+                        <Typography variant="base">
+                            Привет, {username}
+                        </Typography>
                     </div>
                 )}
                 {isAuth ? (
                     <div onClick={logout} className={classNames(styles.item)}>
                         <LogIn width={15} />
-                        <p>Выйти</p>
+                        <Typography variant="base">Выйти</Typography>
                     </div>
                 ) : (
                     <div
@@ -64,7 +67,7 @@ export const Header: FC = () => {
                         })}
                     >
                         <LogIn width={15} />
-                        <p>Войти</p>
+                        <Typography variant="base">Войти</Typography>
                     </div>
                 )}
             </div>
