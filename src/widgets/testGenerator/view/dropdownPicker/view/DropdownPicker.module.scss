@@ -1,0 +1,312 @@
+.pickerContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, #ffffff, #fafbfc);
+    padding: 28px;
+    gap: 16px;
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.containerOpen {
+        overflow: visible;
+        z-index: 1000;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(147, 51, 234, 0.05) 0%,
+            rgba(168, 85, 247, 0.03) 50%,
+            rgba(236, 254, 255, 0.05) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+        border-radius: 20px;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 12px 25px rgba(147, 51, 234, 0.08),
+            0 5px 10px rgba(0, 0, 0, 0.1);
+        border-color: rgba(147, 51, 234, 0.2);
+
+        &::before {
+            opacity: 1;
+        }
+
+        .decorativeElement {
+            transform: scale(1.1) rotate(45deg);
+            opacity: 0.8;
+        }
+    }
+
+    .textArea {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            opacity: 0.7;
+            margin-left: 44px;
+        }
+    }
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #ede9fe, #f3f4f6);
+    border-radius: 12px;
+    color: #9333ea;
+    transition: all 0.3s ease;
+}
+
+.dropdownWrapper {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+
+    &.active {
+        border-color: #9333ea;
+        box-shadow:
+            0 0 0 4px rgba(147, 51, 234, 0.15),
+            0 8px 20px rgba(147, 51, 234, 0.15);
+        background: linear-gradient(135deg, #faf5ff, #ffffff);
+
+        .chevron {
+            color: #9333ea;
+        }
+    }
+}
+
+.toggleContent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.selectedValue {
+    font-weight: 600;
+    color: #374151;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.toggleBadge {
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    color: #6b7280;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chevron {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #6b7280;
+    margin-left: 8px;
+
+    &.rotated {
+        transform: rotate(180deg);
+        color: #9333ea;
+    }
+}
+
+.dropdown {
+    overflow-y: hidden;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 20px;
+    box-shadow:
+        0 20px 25px rgba(0, 0, 0, 0.1),
+        0 10px 10px rgba(0, 0, 0, 0.04);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 0;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+        max-height: 400px;
+        border-color: rgba(147, 51, 234, 0.2);
+        animation: dropdownSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+@keyframes dropdownSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.dropdownHeader {
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid #f3f4f6;
+    background: linear-gradient(135deg, #fafbfc, #f8fafc);
+    border-radius: 18px 18px 0 0;
+
+    span {
+        color: #6b7280;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 11px;
+    }
+}
+
+.optionsList {
+    max-height: 300px;
+    overflow-y: hidden;
+}
+
+.dropdownItem {
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #f8fafc;
+    font-weight: 500;
+    color: #374151;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+
+    &:last-child {
+        border-bottom: none;
+        border-radius: 0 0 18px 18px;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, #faf5ff, #f8fafc);
+        color: #9333ea;
+
+        .hoverEffect {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .optionText {
+            font-weight: 600;
+            transform: scale(1.05);
+        }
+    }
+
+    &.selected {
+        background: linear-gradient(135deg, #ede9fe, #f3e8ff);
+        color: #9333ea;
+        font-weight: 600;
+        border-left: 4px solid #9333ea;
+
+        .checkIcon {
+            animation: checkBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+    }
+
+    &:active {
+        transform: translateX(2px) scale(0.98);
+        background: linear-gradient(135deg, #ddd6fe, #ede9fe);
+    }
+}
+
+.optionText {
+    transition: all 0.3s ease;
+    font-size: 15px;
+    transform: scale(1);
+}
+
+.checkIcon {
+    color: #9333ea;
+    opacity: 0.8;
+}
+
+@keyframes checkBounce {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+.hoverEffect {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(135deg, #9333ea, #c084fc);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

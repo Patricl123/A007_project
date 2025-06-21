@@ -5,3 +5,5 @@ export { ScrollToTop } from './scrollToTop/view/ScrollToTop';
 export { Input } from './input/view/Input';
 export { Label } from './label/view/Label';
 export { Container } from './container/view/Container';
+export { Loader } from './loader/view/Loader';
+export { Card } from './card/view/Card';

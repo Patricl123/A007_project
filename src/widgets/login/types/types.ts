@@ -3,6 +3,7 @@ export interface AuthState {
     accessToken: string | null;
     refreshToken: string | null;
     username: string | null;
+    userId: string | null;
     role: string | null;
 
     login: (params: { username: string; password: string }) => Promise<void>;

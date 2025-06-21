@@ -10,6 +10,7 @@ export const useAuthStore = create<AuthState>()(
             accessToken: null,
             refreshToken: null,
             username: null,
+            userId: null,
             role: null,
 
             async login({ username, password }) {
@@ -20,6 +21,7 @@ export const useAuthStore = create<AuthState>()(
                     accessToken: data.access,
                     refreshToken: data.refresh,
                     username,
+                    userId: data.user.id,
                     role: data.user.role,
                 });
             },
@@ -30,6 +32,7 @@ export const useAuthStore = create<AuthState>()(
                     accessToken: null,
                     refreshToken: null,
                     username: null,
+                    userId: null,
                 });
             },
 

@@ -5,3 +5,9 @@ export const TestPage = lazy(() =>
         default: module.TestPage,
     })),
 );
+
+export const TestPassPage = lazy(() =>
+    import('./testMore/view/TestPassPage').then((module) => ({
+        default: module.TestPassPage,
+    })),
+);
