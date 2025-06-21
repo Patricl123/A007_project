@@ -20,12 +20,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             autoFocus = false,
             pattern,
             fullWidth = false,
+            children,
             ...props
         },
         ref,
     ) => {
         const inputClass = classNames(
-            'input',
+            styles.input,
             {
                 [styles.medium]: size === 'medium',
                 [styles.short]: size === 'short',
@@ -37,22 +38,25 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         );
 
         return (
-            <input
-                ref={ref}
-                type={type}
-                placeholder={placeholder}
-                value={value}
-                defaultValue={defaultValue}
-                onChange={onChange}
-                disabled={disabled}
-                name={name}
-                id={id}
-                required={required}
-                autoFocus={autoFocus}
-                pattern={pattern}
-                className={inputClass}
-                {...props}
-            />
+            <div className={styles.wrapper}>
+                <input
+                    ref={ref}
+                    type={type}
+                    placeholder={placeholder}
+                    value={value}
+                    defaultValue={defaultValue}
+                    onChange={onChange}
+                    disabled={disabled}
+                    name={name}
+                    id={id}
+                    required={required}
+                    autoFocus={autoFocus}
+                    pattern={pattern}
+                    className={inputClass}
+                    {...props}
+                />
+                {children && <div className={styles.icon}>{children}</div>}
+            </div>
         );
     },
 );

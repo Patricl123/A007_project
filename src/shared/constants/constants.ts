@@ -3,4 +3,6 @@ export const routes = {
     subjects: '/subjects',
     tests: '/tests',
     profile: '/profile',
+    questions: '/questions',
+    login: '/login',
 };
