@@ -1,0 +1,51 @@
+.wrapper {
+    height: 65px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: #fff;
+
+    .logoWrapper {
+        height: 38px;
+
+        img {
+            height: 100%;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .routes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            height: 35px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 7px;
+            transition: 0.1s ease-in;
+
+            &:hover {
+                background-color: rgb(236, 236, 236);
+            }
+
+            &.active {
+                background-color: #17a7ef;
+                color: white;
+            }
+        }
+    }
+}

@@ -31,6 +31,5 @@ export const Typography: FC<TypographyProps> = ({
     ]
         .filter(Boolean)
         .join(' ');
-
     return React.createElement(Tag, { className: classes }, children);
 };

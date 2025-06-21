@@ -8,6 +8,10 @@ $color-white: #fff;
 
 $font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
 
+* {
+    margin: 0;
+    font-family: sans-serif;
+}
 .h1 {
     font-size: 3rem; // text-5xl
     font-weight: 700;

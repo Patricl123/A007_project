@@ -13,4 +13,5 @@ export interface InputProps {
     autoFocus?: boolean;
     pattern?: string;
     fullWidth?: boolean;
+    children?: React.ReactNode;
 }
