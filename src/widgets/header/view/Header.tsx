@@ -1,6 +1,6 @@
 import { useState, type FC } from 'react';
 import styles from './Header.module.scss';
-import { Calculator, LogIn, MessageSquare, User } from 'lucide-react';
+import { Calculator, LogIn, MessageSquare } from 'lucide-react';
 import logo from 'shared/assets/images/mathGenieLogo.png';
 import classNames from 'classnames';
 import { useAuthStore } from 'widgets/login/store/useAuthStore';
@@ -53,21 +53,23 @@ export const Header: FC = () => {
                             [styles.active]: active === 'profile',
                         })}
                     >
-                        <User width={17} />
                         <Typography variant="base">
                             Привет, {username}
                         </Typography>
                     </div>
                 )}
                 {isAuth ? (
-                    <div onClick={logout} className={classNames(styles.item)}>
+                    <div
+                        onClick={logout}
+                        className={classNames(styles.item, styles.button)}
+                    >
                         <LogIn width={17} />
                         <Typography variant="base">Выйти</Typography>
                     </div>
                 ) : (
                     <div
                         onClick={() => handleClick('login')}
-                        className={classNames(styles.item, {
+                        className={classNames(styles.item, styles.button, {
                             [styles.active]: active === 'login',
                         })}
                     >
