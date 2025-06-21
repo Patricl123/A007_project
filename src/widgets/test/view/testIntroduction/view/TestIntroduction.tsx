@@ -6,6 +6,7 @@ import { DropdownPicker } from '../../dropdownPicker/view/DropdownPicker';
 
 export const TestIntroduction = () => {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
     const [selectedValues, setSelectedValues] = useState<{
         [key: string]: string;
     }>({
