@@ -1,4 +1,4 @@
-import { AuthRedirectWatcher } from 'features/authWatcher/authWatcher';
+import { AuthRedirectWatcher } from 'features/authWatcher/AuthWatcher';
 import { type FC, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Footer } from 'widgets/footer';
