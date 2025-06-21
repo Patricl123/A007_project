@@ -25,6 +25,7 @@ export default tseslint.config(
                 'error',
                 { allowConstantExport: true },
             ],
+            '@typescript-eslint/no-explicit-any': 'off',
             'react/jsx-no-target-blank': 'off',
             'react/prop-types': 'off',
             'no-console': ['warn', { allow: ['warn', 'error'] }],

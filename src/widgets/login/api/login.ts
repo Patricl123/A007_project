@@ -28,7 +28,7 @@ export async function refreshAccessToken() {
     }
 }
 
-export async function authorizedRequest(url: string, options = {}) {
+export async function authorizedRequest(url: string, options: any = {}) {
     const { accessToken } = useAuthStore.getState();
 
     const headers = {
