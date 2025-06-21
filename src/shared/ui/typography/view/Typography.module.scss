@@ -1,0 +1,93 @@
+// Основные переменные для цветов и шрифтов
+$color-main: #0f172a;
+$color-secondary: #64748b;
+$color-muted: #94a3b8;
+$color-accent: #6366f1;
+$color-gray: #6b7280;
+$color-white: #fff;
+
+$font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
+
+.h1 {
+    font-size: 3rem; // text-5xl
+    font-weight: 700;
+    line-height: 1.1;
+    color: $color-main;
+    margin-bottom: 1.5rem;
+}
+
+.h2 {
+    font-size: 2.25rem; // text-3xl
+    font-weight: 700;
+    line-height: 1.15;
+    color: $color-main;
+    margin-bottom: 1.25rem;
+}
+
+.h3 {
+    font-size: 1.5rem; // text-2xl
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-main;
+    margin-bottom: 1rem;
+}
+
+.h4 {
+    font-size: 1.125rem; // text-lg
+    font-weight: 600;
+    line-height: 1.25;
+    color: $color-main;
+    margin-bottom: 0.75rem;
+}
+
+.h5 {
+    font-size: 1rem; // text-base
+    font-weight: 600;
+    line-height: 1.3;
+    color: $color-main;
+    margin-bottom: 0.5rem;
+}
+
+.large {
+    font-size: 1.25rem; // text-xl
+    font-weight: 400;
+    color: $color-main;
+}
+
+.base {
+    font-size: 1rem; // text-base
+    font-weight: 400;
+    color: $color-main;
+}
+
+.small {
+    font-size: 0.875rem; // text-sm
+    font-weight: 400;
+    color: $color-gray;
+}
+
+.smallXs {
+    font-size: 0.75rem; // text-xs
+    font-weight: 400;
+    color: $color-muted;
+}
+
+// Дополнительные утилиты
+.bold {
+    font-weight: 700;
+}
+.semibold {
+    font-weight: 600;
+}
+.regular {
+    font-weight: 400;
+}
+.center {
+    text-align: center;
+}
+.muted {
+    color: $color-muted;
+}
+.secondary {
+    color: $color-secondary;
+}

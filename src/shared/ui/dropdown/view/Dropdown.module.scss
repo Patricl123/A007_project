@@ -1,0 +1,81 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    min-width: 160px;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border 0.2s;
+    min-height: 2.5rem;
+    color: #1e293b;
+}
+
+.control.default {
+    border-color: #6366f1;
+}
+.control.outline {
+    border-color: #e5e7eb;
+}
+.control.ghost {
+    background: transparent;
+    border: none;
+}
+
+.control:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 110%;
+    z-index: 10;
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px 0 rgba(99, 102, 241, 0.08);
+    margin-top: 0.25rem;
+    padding: 0.25rem 0;
+}
+
+.option {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #1e293b;
+    cursor: pointer;
+    transition: background 0.2s;
+    background: transparent;
+}
+.option:hover:not(.disabled) {
+    background: #f1f5f9;
+}
+.option.selected {
+    background: #6366f1;
+    color: #fff;
+}
+.option.disabled {
+    color: #cbd5e1;
+    cursor: not-allowed;
+}
+
+.sm .control {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    min-height: 2rem;
+}
+.lg .control {
+    font-size: 1.125rem;
+    padding: 0.75rem 1.5rem;
+    min-height: 3rem;
+}
