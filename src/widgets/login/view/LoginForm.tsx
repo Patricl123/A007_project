@@ -35,14 +35,18 @@ export const LoginForm: FC = () => {
                             Вход в систему
                         </Typography>
                     </div>
-                    <Typography variant="base" color="secondary">
+                    <Typography
+                        variant="small"
+                        weight="regular"
+                        color="secondary"
+                    >
                         Войдите в свой аккаунт, чтобы сохранять прогресс
                     </Typography>
                 </div>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.field}>
                         <Label>
-                            <Typography variant="h5" weight="semibold">
+                            <Typography variant="base" weight="semibold">
                                 Логин
                             </Typography>
                         </Label>
@@ -53,12 +57,17 @@ export const LoginForm: FC = () => {
                             onChange={(e) => setUsername(e.target.value)}
                             placeholder="Введите ваш логин"
                         >
-                            <KeyRound color="grey" />
+                            <KeyRound
+                                size={18}
+                                color="#6f7583"
+                                style={{ opacity: 0.6 }}
+                                strokeWidth={2}
+                            />
                         </Input>
                     </div>
                     <div className={styles.field}>
                         <Label>
-                            <Typography variant="h5" weight="semibold">
+                            <Typography variant="base" weight="semibold">
                                 Пароль
                             </Typography>
                         </Label>
@@ -69,7 +78,12 @@ export const LoginForm: FC = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Введите ваш пароль"
                         >
-                            <Lock color="grey" />
+                            <Lock
+                                size={18}
+                                style={{ opacity: 0.6 }}
+                                color="#6f7583"
+                                strokeWidth={2}
+                            />
                         </Input>
                     </div>
                     <Button type="submit">Войти</Button>

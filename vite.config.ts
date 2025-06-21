@@ -12,4 +12,14 @@ export default defineConfig({
             features: '/src/features',
         },
     },
+
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `
+          @use "app/styles/forward.scss" as *;
+        `,
+            },
+        },
+    },
 });
