@@ -1,7 +1,7 @@
 .wrapper {
     position: fixed;
     inset: 0;
-    background: rgb(69, 124, 254);
+    background: $accent-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,10 +9,10 @@
 }
 
 .content {
-    background: white;
+    background: $white;
     padding: 24px;
     border-radius: 8px;
-    max-width: 400px;
+    width: 450px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     .textBox {

@@ -17,53 +17,53 @@
 }
 
 .default {
-    background: #6366f1;
-    color: #fff;
+    background: $gradient;
+    color: $white;
     &:hover {
-        background: #4f46e5;
+        background: $gradient-hover;
     }
 }
 
 .destructive {
-    background: #ef4444;
-    color: #fff;
+    background: $error;
+    color: $white;
     &:hover {
-        background: #dc2626;
+        background: $error-hover;
     }
 }
 
 .outline {
-    background: #fff;
-    color: #6366f1;
-    border: 1.5px solid #6366f1;
+    background: $white;
+    color: $accent-color;
+    border: 1.5px solid $accent-color;
     &:hover {
-        background: #f1f5f9;
+        background: $white-hover;
     }
 }
 
 .secondary {
-    background: #f1f5f9;
-    color: #1e293b;
+    background: $white;
+    color: $black;
     &:hover {
-        background: #e5e7eb;
+        background: $white-hover;
     }
 }
 
 .ghost {
     background: transparent;
-    color: #6366f1;
+    color: $accent-color;
     &:hover {
-        background: #f1f5f9;
+        background: $white;
     }
 }
 
 .link {
     background: transparent;
-    color: #6366f1;
+    color: $accent-color;
     text-decoration: underline;
     padding: 0;
     &:hover {
-        color: #4f46e5;
+        color: $accent-color-hover;
     }
 }
 
@@ -92,7 +92,7 @@
 .secondary:focus,
 .ghost:focus,
 .link:focus {
-    box-shadow: 0 0 0 2px #6366f1;
+    box-shadow: 0 0 0 2px $accent-color;
 }
 
 .default:active,
