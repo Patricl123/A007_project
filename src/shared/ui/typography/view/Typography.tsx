@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './Typography.module.scss';
 import type { FC } from 'react';
 import type { TypographyProps } from '../types/ITypography';
@@ -12,7 +13,7 @@ const tagMap = {
     base: 'p',
     small: 'p',
     smallXs: 'p',
-};
+} as const;
 
 export const Typography: FC<TypographyProps> = ({
     variant,
@@ -30,5 +31,6 @@ export const Typography: FC<TypographyProps> = ({
     ]
         .filter(Boolean)
         .join(' ');
-    return <Tag className={classes}>{children}</Tag>;
+
+    return React.createElement(Tag, { className: classes }, children);
 };
