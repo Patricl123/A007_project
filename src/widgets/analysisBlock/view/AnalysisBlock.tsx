@@ -1,4 +1,5 @@
 import { ChartColumn } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import styles from './AnalysisBlock.module.scss';
 import { Button, Typography } from 'shared/ui';
 import {
@@ -32,7 +33,9 @@ export const AnalysisBlock = () => {
             </div>
             <div className={styles.textBlock}>
                 {data ? (
-                    <Typography variant="base">{data.adviceText}</Typography>
+                    <Typography variant="base">
+                        <ReactMarkdown>{data.adviceText}</ReactMarkdown>
+                    </Typography>
                 ) : (
                     <Typography variant="base">
                         Пока нет анализа ваших данных
