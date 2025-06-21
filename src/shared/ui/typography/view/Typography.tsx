@@ -1,6 +1,7 @@
 import styles from './Typography.module.scss';
 import type { FC } from 'react';
 import type { TypographyProps } from '../types/ITypography';
+import React from 'react';
 
 const tagMap = {
     h1: 'h1',
@@ -30,5 +31,5 @@ export const Typography: FC<TypographyProps> = ({
     ]
         .filter(Boolean)
         .join(' ');
-    return <Tag className={classes}>{children}</Tag>;
+    return React.createElement(Tag, { className: classes }, children);
 };

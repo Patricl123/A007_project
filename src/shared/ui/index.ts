@@ -1,3 +1,4 @@
+export { Container } from './container/view/Container';
 export { Typography } from './typography/view/Typography';
 export { Button } from './button/view/Button';
 export { Dropdown } from './dropdown/view/Dropdown';
