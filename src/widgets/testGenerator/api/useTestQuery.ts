@@ -13,6 +13,16 @@ export const useAllTestQuery = () => {
     });
 };
 
+export const useUserTestsQuery = () => {
+    return useQuery<IAllTests>({
+        queryKey: ['user-tests'],
+        queryFn: async () => {
+            const { data } = await $mainApi.get<IAllTests>('/test/user');
+            return data;
+        },
+    });
+};
+
 export const useAllTopicsQuery = () => {
     return useQuery<ITopic[]>({
         queryKey: ['topics'],

@@ -21,6 +21,6 @@ export const useInProgressTestsQuery = () => {
             return data;
         },
         enabled: isAuth,
-        staleTime: 1 * 60 * 1000, // бир минута
+        staleTime: 5 * 60 * 1000,
     });
 };
