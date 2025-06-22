@@ -4,9 +4,11 @@ import { Container, Typography } from 'shared/ui';
 import { Calculator, Target, Sparkles } from 'lucide-react';
 import { DropdownPicker } from '../../dropdownPicker/view/DropdownPicker';
 import { useAllTopicsQuery } from 'widgets/testGenerator/api/useTestQuery';
+import { useGenerateTestMutation } from 'widgets/testGenerator/api/useGenerateTestMutation';
 
 export const TestGenerator = () => {
     const { data: topics } = useAllTopicsQuery();
+    const generateTestMutation = useGenerateTestMutation();
 
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -54,6 +56,26 @@ export const TestGenerator = () => {
     const canStartTest =
         selectedValues['1'] !== 'Выберите тему...' &&
         selectedValues['2'] !== 'Выберите уровень...';
+
+    const handleGenerateTest = () => {
+        if (!canStartTest || !topics) return;
+
+        const selectedTopic = topics.find(
+            (topic) => topic.name === selectedValues['1'],
+        );
+
+        if (!selectedTopic) {
+            console.error('Выбранная тема не найдена!');
+            return;
+        }
+
+        const payload = {
+            topicId: selectedTopic._id,
+            difficulty: selectedValues['2'].toLowerCase(),
+        };
+
+        generateTestMutation.mutate(payload);
+    };
 
     return (
         <Container>
@@ -112,10 +134,24 @@ export const TestGenerator = () => {
 
                     <button
                         className={styles.actionButton}
-                        disabled={!canStartTest}
+                        disabled={
+                            !canStartTest || generateTestMutation.isPending
+                        }
+                        onClick={handleGenerateTest}
                     >
-                        <Sparkles size={16} style={{ marginRight: '8px' }} />
-                        {canStartTest ? 'Начать тест' : 'Выберите параметры'}
+                        {generateTestMutation.isPending ? (
+                            'Создание теста...'
+                        ) : (
+                            <>
+                                <Sparkles
+                                    size={16}
+                                    style={{ marginRight: '8px' }}
+                                />
+                                {canStartTest
+                                    ? 'Начать тест'
+                                    : 'Выберите параметры'}
+                            </>
+                        )}
                     </button>
                 </div>
             </div>
