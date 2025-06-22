@@ -44,6 +44,7 @@
 .secondary {
     background: $white;
     color: $black;
+    border: 1.5px solid $white-hover;
     &:hover {
         background: $white-hover;
     }

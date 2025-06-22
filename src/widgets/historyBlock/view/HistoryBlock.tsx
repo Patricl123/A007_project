@@ -5,6 +5,7 @@ import { useHistoryQuery } from '../api/useHistoryQuery';
 
 export const HistoryBlock = () => {
     const { data, isLoading, error } = useHistoryQuery();
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.title}>

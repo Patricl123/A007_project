@@ -130,12 +130,20 @@ export const TestPass = () => {
     }, [isProgressLoaded, isAuth, testId, testData, submission.isSubmitting]);
 
     useEffect(() => {
-        const intervalId = setInterval(saveProgress, 30000);
-        return () => {
-            clearInterval(intervalId);
+        const handleBeforeUnload = () => {
             saveProgress();
         };
-    }, [saveProgress, answerManagement, navigation, timer]);
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+            saveProgress();
+        };
+    }, [saveProgress]);
+
+    const handleNext = async () => {
+        await saveProgress();
+        navigation.goNext();
+    };
 
     if (isLoading || !isProgressLoaded || navigation.currentIndex === null)
         return <Loader />;
@@ -201,7 +209,7 @@ export const TestPass = () => {
 
             <QuestionNavigation
                 onPrev={navigation.goPrev}
-                onNext={navigation.goNext}
+                onNext={handleNext}
                 isFirst={navigation.isFirst}
                 isLast={navigation.isLast}
                 onSubmit={submission.submit}

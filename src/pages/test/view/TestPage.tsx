@@ -4,6 +4,7 @@ import { TestGenerator } from 'widgets/testGenerator';
 import {
     useAllTestQuery,
     useAllTopicsQuery,
+    useUserTestsQuery,
 } from 'widgets/testGenerator/api/useTestQuery';
 import { InProgressTests } from 'widgets/inProgressTests';
 import { useInProgressTestsQuery } from 'widgets/inProgressTests/api/useInProgressTestsQuery';
@@ -13,8 +14,10 @@ export const TestPage: FC = () => {
     const { isLoading: testsLoading } = useAllTestQuery();
     const { isLoading: topicsLoading } = useAllTopicsQuery();
     const { isLoading: progressLoading } = useInProgressTestsQuery();
+    const { isLoading: userTestsLoading } = useUserTestsQuery();
 
-    const isLoading = testsLoading || topicsLoading || progressLoading;
+    const isLoading =
+        testsLoading || topicsLoading || progressLoading || userTestsLoading;
 
     if (isLoading) {
         return <Loader />;
@@ -22,8 +25,8 @@ export const TestPage: FC = () => {
 
     return (
         <>
-            <TestAll />
             <InProgressTests />
+            <TestAll />
             <TestGenerator />
         </>
     );
