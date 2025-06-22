@@ -21,8 +21,10 @@ export const AnalysisBlock = () => {
         <div className={styles.wrapper}>
             <div className={styles.titleBlock}>
                 <div className={styles.title}>
-                    <ChartColumn color="#9333ea" size={30} />
-                    <Typography variant="h3">
+                    <div className={styles.icon}>
+                        <ChartColumn color="#fafcfc" size={30} />
+                    </div>
+                    <Typography color="gradient" variant="h3">
                         ИИ Анализ ваших результатов
                     </Typography>
                 </div>

@@ -35,6 +35,10 @@ export const router = () =>
                     path: routes.testMore,
                     element: <TestPassPage />,
                 },
+                {
+                    path: routes.questions,
+                    element: <div>Questions Page</div>,
+                },
             ],
         },
     ]);
