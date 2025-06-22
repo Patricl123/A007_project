@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './ScrollToTop.module.scss';
-import { ArrowBigUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { Button } from 'shared/ui/button/view/Button';
 
 export const ScrollToTop = () => {
@@ -28,7 +28,7 @@ export const ScrollToTop = () => {
             size="icon"
             aria-label="Scroll to top"
         >
-            <ArrowBigUp size={28} color="#fff" />
+            <ArrowUp size={28} color="#fff" />
         </Button>
     );
 };

@@ -1,0 +1,30 @@
+.wrapper {
+    width: 850px;
+    margin: 30px auto;
+    border: 1px solid $border;
+    padding: 30px 40px;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 2px;
+
+        .label {
+            margin: 0;
+            font-weight: 600;
+        }
+    }
+}

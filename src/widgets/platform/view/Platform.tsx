@@ -35,11 +35,7 @@ export const Platform = () => {
     ];
     return (
         <section className={styles.platformSection}>
-            <Typography
-                variant="h2"
-                color={'#1f2937'}
-                className={styles.titleMain}
-            >
+            <Typography variant="h2" className={styles.titleMain}>
                 Возможности платформы
             </Typography>
             <Typography variant="large" className={styles.subtitle}>
@@ -56,7 +52,7 @@ export const Platform = () => {
                             <feature.icon className={styles.icon} />
                         </div>
                         <Typography
-                            variant="h3"
+                            variant="h4"
                             weight="semibold"
                             className={styles.title}
                         >

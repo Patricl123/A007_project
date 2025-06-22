@@ -1,9 +1,10 @@
 import { routes } from 'shared/constants/constants';
 import { Layout } from '../layout/Layout';
 import { createBrowserRouter } from 'react-router-dom';
-import { TestsPage } from 'pages/testsPage';
 import { HomePage } from 'pages/home';
+import { LoginPage } from 'pages/loginPage';
 import { ProfilePage } from 'pages/profile';
+import { TestPassPage, TestPage } from 'pages/';
 
 export const router = () =>
     createBrowserRouter([
@@ -19,12 +20,20 @@ export const router = () =>
                     element: <div>subjects</div>,
                 },
                 {
-                    path: routes.tests,
-                    element: <TestsPage />,
+                    path: routes.login,
+                    element: <LoginPage />,
+                },
+                {
+                    path: routes.test,
+                    element: <TestPage />,
                 },
                 {
                     path: routes.profile,
                     element: <ProfilePage />,
+                },
+                {
+                    path: routes.testMore,
+                    element: <TestPassPage />,
                 },
             ],
         },

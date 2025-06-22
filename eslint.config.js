@@ -25,6 +25,7 @@ export default tseslint.config(
                 'error',
                 { allowConstantExport: true },
             ],
+            '@typescript-eslint/no-explicit-any': 'off',
             'react/jsx-no-target-blank': 'off',
             'react/prop-types': 'off',
             'no-console': ['warn', { allow: ['warn', 'error'] }],
@@ -40,7 +41,7 @@ export default tseslint.config(
                     message: 'Убери - console.log()',
                 },
             ],
-            'jsx-quotes': ['warn', 'prefer-single'],
+            'jsx-quotes': ['warn', 'prefer-double'],
             'react/jsx-indent': ['warn', 4],
             'react/jsx-indent-props': ['error', 4],
             'react/jsx-max-props-per-line': [

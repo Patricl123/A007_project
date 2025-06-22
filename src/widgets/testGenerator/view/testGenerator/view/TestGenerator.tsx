@@ -1,0 +1,124 @@
+import { useState } from 'react';
+import styles from './TestGenerator.module.scss';
+import { Container, Typography } from 'shared/ui';
+import { Calculator, Target, Sparkles } from 'lucide-react';
+import { DropdownPicker } from '../../dropdownPicker/view/DropdownPicker';
+import { useAllTopicsQuery } from 'widgets/testGenerator/api/useTestQuery';
+
+export const TestGenerator = () => {
+    const { data: topics } = useAllTopicsQuery();
+
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+    const [selectedValues, setSelectedValues] = useState<{
+        [key: string]: string;
+    }>({
+        '1': 'Выберите тему...',
+        '2': 'Выберите уровень...',
+    });
+
+    const dropdownOptions: { [key: string]: string[] } = {
+        '1': topics ? topics.map((topic) => topic.name) : [],
+        '2': ['Начальный', 'Средний', 'Продвинутый'],
+    };
+
+    const data = [
+        {
+            id: '1',
+            title: 'Выберите тему',
+            subtitle: 'Определите область математики для изучения',
+            icon: <Target />,
+            actionValue: selectedValues['1'],
+        },
+        {
+            id: '2',
+            title: 'Уровень сложности',
+            subtitle: 'Выберите подходящий уровень',
+            icon: <Calculator />,
+            actionValue: selectedValues['2'],
+        },
+    ];
+
+    const handleDropdownToggle = (id: string) => {
+        setOpenDropdown(openDropdown === id ? null : id);
+    };
+
+    const handleOptionSelect = (id: string, option: string) => {
+        setSelectedValues((prev) => ({
+            ...prev,
+            [id]: option,
+        }));
+        setOpenDropdown(null);
+    };
+
+    const canStartTest =
+        selectedValues['1'] !== 'Выберите тему...' &&
+        selectedValues['2'] !== 'Выберите уровень...';
+
+    return (
+        <Container>
+            <div className={styles.introduction}>
+                <div className={styles.textPart}>
+                    <Typography variant="h2" color="gradient">
+                        Генератор тестов
+                    </Typography>
+                    <Typography variant="base">
+                        Выберите тему и уровень сложности для создания
+                        персонализированного теста
+                    </Typography>
+                </div>
+
+                <div className={styles.choosePart}>
+                    {data.map((elem) => (
+                        <DropdownPicker
+                            key={elem.id}
+                            id={elem.id}
+                            title={elem.title}
+                            subtitle={elem.subtitle}
+                            icon={elem.icon}
+                            actionValue={elem.actionValue}
+                            options={dropdownOptions[elem.id] || []}
+                            isOpen={openDropdown === elem.id}
+                            onToggle={handleDropdownToggle}
+                            onOptionSelect={handleOptionSelect}
+                        />
+                    ))}
+                </div>
+
+                <div className={styles.startPart}>
+                    <div className={styles.floatingElements}>
+                        <div className={styles.element}></div>
+                        <div className={styles.element}></div>
+                        <div className={styles.element}></div>
+                        <div className={styles.element}></div>
+                    </div>
+
+                    <div className={styles.icon}>
+                        <Calculator className={styles.iconCalculator} />
+                    </div>
+
+                    <div className={styles.textValue}>
+                        <Typography variant="h3">
+                            {canStartTest
+                                ? 'Все готово к запуску!'
+                                : 'Готовы начать?'}
+                        </Typography>
+                        <Typography variant="base">
+                            {canStartTest
+                                ? `ИИ создаст персонализированный тест по теме "${selectedValues['1']}" на ${selectedValues['2'].toLowerCase()} уровне. Каждый вопрос будет сопровождаться подробным объяснением.`
+                                : 'ИИ сгенерирует персонализированные вопросы на основе выбранной темы и уровня. После каждого ответа вы получите объяснение.'}
+                        </Typography>
+                    </div>
+
+                    <button
+                        className={styles.actionButton}
+                        disabled={!canStartTest}
+                    >
+                        <Sparkles size={16} style={{ marginRight: '8px' }} />
+                        {canStartTest ? 'Начать тест' : 'Выберите параметры'}
+                    </button>
+                </div>
+            </div>
+        </Container>
+    );
+};

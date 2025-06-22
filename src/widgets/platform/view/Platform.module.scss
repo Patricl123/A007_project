@@ -1,24 +1,28 @@
-// .plaformSection {
-
-// }
-// .titleMain {
-//     text-align: center;
-//     round: linear-gradient(to right, #2563eb, #7e22ce);
-//   -webkit-background-clip: text;
-//   -webkit-text-fill-color: transparent;nb
-// }
-// .card {
-//   height: 100%;
-//   background-color: white;
-//   border: none;
-//   transition: all 0 backg.3s ease;
-//   padding: 1.5rem; // 24px
-//   text-align: center;
-//   &:hover {
-//     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-//     transform: translateY(-4px);
-//   }
-// }
+.platformSection {
+    padding: 5rem;
+    background-color: $white;
+    text-align: center;
+}
+.titleMain {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+.card {
+    width: 280px;
+    height: 300px;
+    background-color: $white;
+    text-align: center;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    &:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+    }
+}
 
 .iconWrapper {
     width: 4rem; // 64px
@@ -37,26 +41,24 @@
 }
 
 .title {
-    font-size: 1.25rem; // 20px
-    font-weight: 700;
+    font-size: 20px;
     margin-bottom: 0.75rem;
-    color: #1f2937; // gray-800
 }
 
 .description {
-    color: #4b5563; // gray-600
+    color: #4b5563;
     line-height: 1.6;
 }
 .listPlatform {
+    margin-top: 4rem;
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 .subtitle {
     margin-top: 0.5rem;
     color: #6b7280;
     width: 768px;
-    text-align: center;
     margin: 0 auto;
 }

@@ -1,38 +1,20 @@
 .heroSection {
     position: relative;
     text-align: center;
+    padding: 5rem;
     background: linear-gradient(
         to bottom right,
         #eff6ff,
         /* from-blue-50 */ #eef2ff,
         /* via-indigo-50 */ #f5f3ff /* to-purple-50 */
     );
+    .description {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin: 1.5rem auto 2rem;
+        width: 900px;
+    }
 }
-
-.gridBg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: url('/assets/grid-pattern.svg');
-    opacity: 0.05;
-    z-index: 0;
-}
-
-.container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.inner {
-    text-align: center;
-    max-width: 960px;
-    margin: 0 auto;
-}
-
 .iconWrapper {
     display: flex;
     justify-content: center;
@@ -46,7 +28,7 @@
 .brainIcon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(to bottom right, #2563eb, #7e22ce);
+    background: $gradient;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -81,15 +63,9 @@
 }
 
 .gradientText {
-    background: linear-gradient(to right, #2563eb, #7e22ce);
+    background: $gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.description {
-    color: #4b5563;
-    line-height: 1.6;
-    margin-bottom: 2rem;
 }
 
 .buttonGroup {
@@ -104,33 +80,6 @@
     }
 }
 
-.startButton {
-    background: linear-gradient(to right, #2563eb, #7e22ce);
-    color: white;
-    font-size: 1rem;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    transition: background 0.3s ease;
-
-    &:hover {
-        background: linear-gradient(to right, #1d4ed8, #6b21a8);
-    }
-}
-
-.askButton {
-    font-size: 1rem;
-    padding: 1rem 2rem;
-    border: 2px solid #cbd5e1;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    background-color: white;
-    color: #111827;
-}
-
 .icon {
     margin: 0 0.5rem;
     width: 20px;
@@ -143,10 +92,13 @@
     text-align: center;
     align-items: center;
     margin: 60px auto 0;
-    gap: 32px;
+    gap: 64px;
+    &Title {
+        margin: 0 0 9px;
+    }
 }
 .listItem {
-    width: 300px;
+    width: 250px;
     height: 250px;
 }
 .listIconWrapper {
@@ -156,17 +108,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
+    margin: 0 auto 2rem;
 }
-.one {
+.item1 {
     background-color: #dbeafe;
 }
-.two {
+.item2 {
     background-color: #f3e8ff;
 }
-.three {
+.item3 {
     background-color: #e0e7ff;
 }
 .listIcon {
