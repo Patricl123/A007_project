@@ -3,7 +3,7 @@ $color-main: #0f172a;
 $color-secondary: #64748b;
 $color-muted: #94a3b8;
 $color-accent: #6366f1;
-$color-gray: #6b7280;
+$color-gray: #4b5563;
 $color-white: #fff;
 
 $font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
@@ -57,7 +57,7 @@ $font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
 .base {
     font-size: 1rem; // text-base
     font-weight: 400;
-    color: $color-main;
+    color: $color-gray;
 }
 
 .small {

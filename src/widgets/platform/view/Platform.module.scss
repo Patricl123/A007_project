@@ -1,0 +1,62 @@
+// .plaformSection {
+
+// }
+// .titleMain {
+//     text-align: center;
+//     round: linear-gradient(to right, #2563eb, #7e22ce);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;nb
+// }
+// .card {
+//   height: 100%;
+//   background-color: white;
+//   border: none;
+//   transition: all 0 backg.3s ease;
+//   padding: 1.5rem; // 24px
+//   text-align: center;
+//   &:hover {
+//     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+//     transform: translateY(-4px);
+//   }
+// }
+
+.iconWrapper {
+    width: 4rem; // 64px
+    height: 4rem;
+    border-radius: 1rem; // 16px
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.icon {
+    width: 2rem;
+    height: 2rem;
+    color: white;
+}
+
+.title {
+    font-size: 1.25rem; // 20px
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #1f2937; // gray-800
+}
+
+.description {
+    color: #4b5563; // gray-600
+    line-height: 1.6;
+}
+.listPlatform {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.subtitle {
+    margin-top: 0.5rem;
+    color: #6b7280;
+    width: 768px;
+    text-align: center;
+    margin: 0 auto;
+}
