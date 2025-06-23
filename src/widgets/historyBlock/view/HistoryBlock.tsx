@@ -5,11 +5,16 @@ import { useHistoryQuery } from '../api/useHistoryQuery';
 
 export const HistoryBlock = () => {
     const { data, isLoading, error } = useHistoryQuery();
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.title}>
-                <Calculator size={30} color="#2663eb" />
-                <Typography variant="h3">История тестов</Typography>
+                <div className={styles.icon}>
+                    <Calculator size={30} color="#fafcfc" />
+                </div>
+                <Typography color="gradient" variant="h3">
+                    История тестов
+                </Typography>
             </div>
             <div className={styles.history}>
                 {isLoading && (

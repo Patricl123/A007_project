@@ -3,14 +3,12 @@ import { useState, useEffect } from 'react';
 export const useTestTimer = (initialTime: number, onTimeUp: () => void) => {
     const [timeLeft, setTimeLeft] = useState<number | null>(null);
 
-    // Инициализация таймера
     useEffect(() => {
         if (initialTime > 0 && timeLeft === null) {
             setTimeLeft(initialTime);
         }
     }, [initialTime, timeLeft]);
 
-    // Логика обратного отсчета
     useEffect(() => {
         if (timeLeft === null || timeLeft <= 0) {
             if (timeLeft === 0) {

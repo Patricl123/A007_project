@@ -39,6 +39,7 @@ export const router = () =>
                 {
                     path: routes.questions,
                     element: <AskAiPage />,
+
                 },
             ],
         },

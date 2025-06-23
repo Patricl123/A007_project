@@ -1,29 +1,16 @@
-import { Button, Container, Typography } from 'shared/ui';
+import { Container, Typography, TestCard } from 'shared/ui';
 import styles from './TestAll.module.scss';
-import { useAllTestQuery } from 'widgets/testGenerator/api/useTestQuery';
 import {
-    Calculator,
-    BookOpen,
-    BrainCircuit,
-    FlaskConical,
-    LayoutDashboard,
-    PenTool,
-    Clock,
-    HelpCircle,
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
-
-const icons = [
-    Calculator,
-    BookOpen,
-    BrainCircuit,
-    FlaskConical,
-    LayoutDashboard,
-    PenTool,
-];
+    useAllTestQuery,
+    useUserTestsQuery,
+} from 'widgets/testGenerator/api/useTestQuery';
 
 export const TestAll = () => {
     const { data: tests } = useAllTestQuery();
+    const { data: userTests } = useUserTestsQuery();
+
+    const hasUserTests =
+        userTests && Array.isArray(userTests) && userTests.length > 0;
 
     return (
         <Container>
@@ -39,70 +26,34 @@ export const TestAll = () => {
 
                 <div className={styles.testList}>
                     {Array.isArray(tests) &&
-                        tests.map((test, index) => {
-                            const Icon = icons[index % icons.length];
-                            return (
-                                <Link
-                                    to={`/test/${test.testId}`}
-                                    key={test.testId}
-                                    className={styles.itemLink}
-                                >
-                                    <div className={styles.testCard}>
-                                        <div className={styles.cardHeader}>
-                                            <div className={styles.icon}>
-                                                <Icon
-                                                    color="#FFFFFF"
-                                                    className={
-                                                        styles.iconCalculator
-                                                    }
-                                                />
-                                            </div>
-                                            <Typography
-                                                variant="large"
-                                                className={styles.cardTitle}
-                                            >
-                                                {test.title}
-                                            </Typography>
-                                        </div>
-
-                                        <div className={styles.cardInfo}>
-                                            <div className={styles.infoItem}>
-                                                <HelpCircle size={18} />
-                                                <span>
-                                                    Сложность: {test.difficulty}
-                                                </span>
-                                            </div>
-                                            <div className={styles.infoItem}>
-                                                <HelpCircle size={18} />
-                                                <span>
-                                                    Вопросов:{' '}
-                                                    {test.questionCount}
-                                                </span>
-                                            </div>
-                                            <div className={styles.infoItem}>
-                                                <Clock size={18} />
-                                                <span>
-                                                    Время: {test.timeLimit / 60}{' '}
-                                                    мин.
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        <div className={styles.cardFooter}>
-                                            <Button variant="default">
-                                                <Typography
-                                                    variant="small"
-                                                    color="white"
-                                                >
-                                                    Начать тест
-                                                </Typography>
-                                            </Button>
-                                        </div>
-                                    </div>
-                                </Link>
-                            );
-                        })}
+                        tests.map((test, index) => (
+                            <TestCard key={index} test={test} index={index} />
+                        ))}
                 </div>
+
+                {hasUserTests && (
+                    <div className={styles.userTestsSection}>
+                        <div className={styles.userTestsHeader}>
+                            <Typography variant="h3" color="gradient">
+                                Мои тесты
+                            </Typography>
+                            <Typography variant="h4">
+                                Ваши созданные тесты для быстрого доступа
+                            </Typography>
+                        </div>
+
+                        <div className={styles.userTestsList}>
+                            {userTests.map((test, index) => (
+                                <TestCard
+                                    key={`user-${index}`}
+                                    test={test}
+                                    index={index}
+                                    isUserTest={true}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </Container>
     );
