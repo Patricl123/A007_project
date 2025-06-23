@@ -1,21 +1,13 @@
 import { ChartColumn } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import styles from './AnalysisBlock.module.scss';
-import { Button, Typography } from 'shared/ui';
-import {
-    useUpdateAnalysisMutation,
-    useUpdatedAnalysisQuery,
-} from '../api/useAnalysisQuery';
+import { Typography } from 'shared/ui';
+import { useAnalysisQuery } from '../api/useAnalysisQuery';
 
 export const AnalysisBlock = () => {
-    const { mutateAsync: updateAnalysis, isPending } =
-        useUpdateAnalysisMutation();
-    const { data, refetch, isFetching } = useUpdatedAnalysisQuery();
-
-    const handleUpdate = async () => {
-        await updateAnalysis();
-        refetch();
-    };
+    const { data, error, isLoading } = useAnalysisQuery();
+    if (error) return <div>failed with error: {error.message}</div>;
+    if (isLoading) return <div>Loading...</div>;
 
     return (
         <div className={styles.wrapper}>
@@ -44,9 +36,6 @@ export const AnalysisBlock = () => {
                     </Typography>
                 )}
             </div>
-            <Button onClick={handleUpdate} disabled={isPending || isFetching}>
-                {isPending || isFetching ? 'Обновляется' : 'Обновить'}
-            </Button>
         </div>
     );
 };
