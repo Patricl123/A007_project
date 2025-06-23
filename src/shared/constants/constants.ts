@@ -8,4 +8,5 @@ export const routes = {
     questions: '/questions',
     login: '/login',
     testMore: '/test/:testId',
+    testReview: '/test/:testId/review',
 };

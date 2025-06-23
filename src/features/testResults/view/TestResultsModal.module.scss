@@ -1,0 +1,176 @@
+.content {
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 32px;
+}
+
+.testTitle {
+    margin-bottom: 8px;
+    color: #1e293b;
+}
+
+.resultMessage {
+    color: #64748b;
+    font-weight: 500;
+}
+
+.scoreSection {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.scoreCircle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.scoreProgress {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #3b82f6 0deg,
+        #3b82f6 calc(50 * 3.6deg),
+        #e2e8f0 calc(50 * 3.6deg),
+        #e2e8f0 360deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background: white;
+        border-radius: 50%;
+    }
+}
+
+.scoreText {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scoreNumber {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3b82f6;
+    line-height: 1;
+}
+
+.scoreTotal {
+    font-size: 1.2rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.scorePercentage {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3b82f6;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 32px;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statLabel {
+    color: #64748b;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.statValue {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.viewDetailsBtn {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    }
+}
+
+.closeBtn {
+    background: white;
+    color: #64748b;
+    border: 2px solid #e2e8f0;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+        color: #475569;
+    }
+}
+
+@media (max-width: 768px) {
+    .scoreCircle {
+        width: 160px;
+        height: 160px;
+    }
+
+    .scoreNumber {
+        font-size: 2rem;
+    }
+
+    .scoreTotal {
+        font-size: 1rem;
+    }
+
+    .stats {
+        gap: 32px;
+    }
+
+    .actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .viewDetailsBtn,
+    .closeBtn {
+        width: 100%;
+        max-width: 280px;
+    }
+}

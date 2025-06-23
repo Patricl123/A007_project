@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { testProgressApi } from 'features/testSubmission/api/testProgressApi';
 import { useAuthStore } from 'widgets/login/store/useAuthStore';
 import type { IInProgressTest } from './useInProgressTestsQuery';
+import { testProgressApi } from 'features/testProgress';
 
 export const useDeleteTestProgressMutation = () => {
     const queryClient = useQueryClient();

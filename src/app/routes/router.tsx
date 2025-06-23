@@ -4,7 +4,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import { HomePage } from 'pages/home';
 import { LoginPage } from 'pages/loginPage';
 import { ProfilePage } from 'pages/profile';
-import { TestPassPage, TestPage } from 'pages/';
+import { TestPage, SubjectsPage } from 'pages/';
+import { TestPassPage } from 'pages/testPass';
 
 export const router = () =>
     createBrowserRouter([
@@ -17,7 +18,7 @@ export const router = () =>
                 },
                 {
                     path: routes.subjects,
-                    element: <div>subjects</div>,
+                    element: <SubjectsPage />,
                 },
                 {
                     path: routes.login,
@@ -33,7 +34,11 @@ export const router = () =>
                 },
                 {
                     path: routes.testMore,
-                    element: <TestPassPage />,
+                    element: <TestPassPage mode="test" />,
+                },
+                {
+                    path: routes.testReview,
+                    element: <TestPassPage mode="review" />,
                 },
             ],
         },

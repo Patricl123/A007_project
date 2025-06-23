@@ -81,10 +81,10 @@ export const TestGenerator = () => {
         <Container>
             <div className={styles.introduction}>
                 <div className={styles.textPart}>
-                    <Typography variant="h2" color="gradient">
+                    <Typography variant="h2" color="gradient-blue">
                         Генератор тестов
                     </Typography>
-                    <Typography variant="base">
+                    <Typography variant="large" color="muted">
                         Выберите тему и уровень сложности для создания
                         персонализированного теста
                     </Typography>

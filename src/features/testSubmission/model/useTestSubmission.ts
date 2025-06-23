@@ -1,8 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { submitTest } from 'entities/test/api/useSubmitTestMutation';
+import type { ITestResult } from 'entities/test/types/testResult';
 
 type SubmissionOptions = {
-    onSuccess?: () => void;
+    onSuccess?: (results: ITestResult) => void;
     onError?: (error: Error) => void;
 };
 
@@ -13,7 +14,11 @@ export const useTestSubmission = (
 ) => {
     const queryClient = useQueryClient();
 
-    const { mutate, isPending } = useMutation({
+    const {
+        mutate,
+        isPending,
+        data: results,
+    } = useMutation({
         mutationFn: () => {
             if (!testId) {
                 return Promise.reject(new Error('Test ID is not defined'));
@@ -26,10 +31,10 @@ export const useTestSubmission = (
             );
             return submitTest({ testId, answers: formattedAnswers });
         },
-        onSuccess: () => {
+        onSuccess: (results) => {
             queryClient.invalidateQueries({ queryKey: ['inProgressTests'] });
             if (options.onSuccess) {
-                options.onSuccess();
+                options.onSuccess(results);
             }
         },
         onError: options.onError,
@@ -38,5 +43,6 @@ export const useTestSubmission = (
     return {
         submit: mutate,
         isSubmitting: isPending,
+        results,
     };
 };

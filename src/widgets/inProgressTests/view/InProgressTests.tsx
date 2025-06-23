@@ -58,10 +58,10 @@ export const InProgressTests = () => {
     return (
         <Container className={styles.wrapper}>
             <div className={styles.header}>
-                <Typography variant="h2" className={styles.title}>
+                <Typography variant="h2" color="gradient-blue">
                     Продолжить прохождение
                 </Typography>
-                <Typography variant="base" className={styles.subtitle}>
+                <Typography variant="large">
                     У вас есть {validTests.length} незавершенных тестов
                 </Typography>
             </div>
