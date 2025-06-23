@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { $mainApi } from 'shared/lib/requester/requester';
 import type { ITestResult } from '../types/testResult';
-import type { IAnswer } from 'features/testProgress/model/useProgressApi';
+import type { IAnswer } from 'features/testProgress/types/ITestProgress';
 
 interface ISubmitPayload {
     testId: string | undefined;
