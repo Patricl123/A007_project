@@ -27,7 +27,7 @@ export const useDeleteTestProgressMutation = () => {
             return { previousTests };
         },
         onError: (err, _testId, context) => {
-            console.error('Failed to delete test progress', err);
+            console.error('Ошибка при удалении теста', err);
             if (context?.previousTests) {
                 queryClient.setQueryData(queryKey, context.previousTests);
             }

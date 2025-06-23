@@ -19,7 +19,7 @@ export const InProgressTests = () => {
     };
 
     if (error) {
-        console.error('Failed to load in-progress tests', error);
+        console.error('Ошибка в запросе прогресса', error);
         return null;
     }
 
