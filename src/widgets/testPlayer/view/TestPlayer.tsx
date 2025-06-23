@@ -196,6 +196,7 @@ export const TestPlayer = ({
         } else {
             navigation.setCurrentIndex(0);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isProgressLoaded, testData, progressData, mode]);
 
     const progressStateRef = useRef({
