@@ -9,8 +9,12 @@ export const ProfileBlock = () => {
         <div className={styles.wrapper}>
             <div className={styles.item}>
                 <div className={styles.title}>
-                    <User size={30} />
-                    <Typography variant="h3">Профиль пользователя</Typography>
+                    <div className={styles.userIcon}>
+                        <User color="#fafcfc" size={30} />
+                    </div>
+                    <Typography color="gradient" variant="h3">
+                        Профиль пользователя
+                    </Typography>
                 </div>
                 <Typography variant="small">
                     Информация о вашем прогрессе в изучении уроков

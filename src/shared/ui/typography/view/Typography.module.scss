@@ -95,9 +95,13 @@ $font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: $color-white;
 }
 
+.lightgrey {
+    color: $light-grey;
+}
+
 .gradient {
     color: #9333ea;
-    background: linear-gradient(135deg, #9333ea 0%, #c084fc 100%);
+    background: $gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

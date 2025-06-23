@@ -4,8 +4,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import { HomePage } from 'pages/home';
 import { LoginPage } from 'pages/loginPage';
 import { ProfilePage } from 'pages/profile';
-import { TestPage, SubjectsPage } from 'pages/';
-import { TestPassPage } from 'pages/testPass';
+import { SubjectsPage } from 'pages/';
+import { TestPassPage, TestPage } from 'pages/';
+import { AskAiPage } from 'pages/askAi';
 
 export const router = () =>
     createBrowserRouter([
@@ -39,6 +40,10 @@ export const router = () =>
                 {
                     path: routes.testReview,
                     element: <TestPassPage mode="review" />,
+                },
+                {
+                    path: routes.questions,
+                    element: <AskAiPage />,
                 },
             ],
         },

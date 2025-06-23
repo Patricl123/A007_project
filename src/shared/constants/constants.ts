@@ -10,3 +10,9 @@ export const routes = {
     testMore: '/test/:testId',
     testReview: '/test/:testId/review',
 };
+
+export const navLink = {
+    test: 'Тесты',
+    questions: 'Вопросы ИИ',
+    profile: 'Профиль',
+};
