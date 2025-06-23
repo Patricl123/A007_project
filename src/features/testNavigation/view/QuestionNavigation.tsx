@@ -1,17 +1,6 @@
 import { Button, Typography } from 'shared/ui';
 import styles from './QuestionNavigation.module.scss';
-
-interface QuestionNavigationProps {
-    onPrev: () => void;
-    onNext: () => void;
-    onSubmit?: () => void;
-    isFirst: boolean;
-    isLast: boolean;
-    isSubmitting?: boolean;
-    answeredCount: number;
-    totalQuestions: number;
-    mode?: 'test' | 'review';
-}
+import type { QuestionNavigationProps } from '../types/IQuestionNavigation';
 
 export const QuestionNavigation = ({
     onPrev,

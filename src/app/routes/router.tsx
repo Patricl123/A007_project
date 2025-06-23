@@ -7,6 +7,7 @@ import { ProfilePage } from 'pages/profile';
 import { SubjectsPage } from 'pages/';
 import { TestPassPage, TestPage } from 'pages/';
 import { AskAiPage } from 'pages/askAi';
+import { TestHistoryPage } from 'pages/testHistory';
 
 export const router = () =>
     createBrowserRouter([
@@ -44,6 +45,10 @@ export const router = () =>
                 {
                     path: routes.questions,
                     element: <AskAiPage />,
+                },
+                {
+                    path: '/test-history/:historyId/:testId',
+                    element: <TestHistoryPage />,
                 },
             ],
         },

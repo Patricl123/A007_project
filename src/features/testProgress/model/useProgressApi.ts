@@ -1,16 +1,5 @@
 import { $mainApi } from 'shared/lib/requester/requester';
-
-export interface IAnswer {
-    questionId: string;
-    selectedOptionId: string;
-}
-
-interface ISaveProgressPayload {
-    testId: string;
-    answers: { questionId: string; selectedOptionId: string }[];
-    currentQuestionIndex: number;
-    timeLeft: number;
-}
+import type { ISaveProgressPayload } from '../types/ITestProgress';
 
 export const testProgressApi = {
     save: (payload: ISaveProgressPayload) =>

@@ -33,10 +33,8 @@
     height: 100%;
     border-radius: 50%;
     background: conic-gradient(
-        #3b82f6 0deg,
-        #3b82f6 calc(50 * 3.6deg),
-        #e2e8f0 calc(50 * 3.6deg),
-        #e2e8f0 360deg
+        var(--color) calc(var(--progress) * 1deg),
+        #e2e8f0 calc(var(--progress) * 1deg)
     );
     display: flex;
     align-items: center;
@@ -64,7 +62,7 @@
 .scoreNumber {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #3b82f6;
+    color: $accent-color;
     line-height: 1;
 }
 
@@ -72,16 +70,6 @@
     font-size: 1.2rem;
     color: #64748b;
     font-weight: 500;
-}
-
-.scorePercentage {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #3b82f6;
 }
 
 .stats {
@@ -98,7 +86,6 @@
 .statLabel {
     color: #64748b;
     margin-bottom: 8px;
-    font-size: 0.9rem;
 }
 
 .statValue {
@@ -111,22 +98,6 @@
     gap: 16px;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.viewDetailsBtn {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-
-    &:hover:not(:disabled) {
-        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
-    }
 }
 
 .closeBtn {
@@ -142,35 +113,5 @@
         background: #f8fafc;
         border-color: #cbd5e1;
         color: #475569;
-    }
-}
-
-@media (max-width: 768px) {
-    .scoreCircle {
-        width: 160px;
-        height: 160px;
-    }
-
-    .scoreNumber {
-        font-size: 2rem;
-    }
-
-    .scoreTotal {
-        font-size: 1rem;
-    }
-
-    .stats {
-        gap: 32px;
-    }
-
-    .actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .viewDetailsBtn,
-    .closeBtn {
-        width: 100%;
-        max-width: 280px;
     }
 }

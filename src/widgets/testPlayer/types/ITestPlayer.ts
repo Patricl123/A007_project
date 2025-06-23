@@ -5,5 +5,7 @@ export interface ITestProgress {
 }
 
 export interface ITestPlayerProps {
-    mode?: 'test' | 'review';
+    mode?: 'test' | 'review' | 'history';
+    testId?: string;
+    historyId?: string;
 }

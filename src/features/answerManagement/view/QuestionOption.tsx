@@ -1,17 +1,6 @@
 import { Typography } from 'shared/ui';
 import styles from './QuestionOption.module.scss';
-
-interface QuestionOptionProps {
-    option: {
-        optionId: string;
-        text: string;
-    };
-    isSelected: boolean;
-    onSelect?: () => void;
-    disabled?: boolean;
-    showStatus?: boolean;
-    isCorrectAnswer?: boolean;
-}
+import type { QuestionOptionProps } from '../types/IAnswerManagement';
 
 export const QuestionOption = ({
     option,

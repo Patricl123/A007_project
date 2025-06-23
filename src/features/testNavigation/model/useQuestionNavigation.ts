@@ -1,7 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 export const useQuestionNavigation = (totalQuestions: number) => {
     const [currentIndex, setCurrentIndex] = useState<number | null>(null);
+
+    useEffect(() => {
+        if (totalQuestions > 0 && currentIndex === null) {
+            setCurrentIndex(0);
+        }
+    }, [totalQuestions, currentIndex]);
 
     const goNext = useCallback(() => {
         if (currentIndex === null) return;

@@ -1,14 +1,8 @@
 import { Modal, Button, Typography } from 'shared/ui';
 import type { ITestResult } from 'entities/test/types/testResult';
 import styles from './TestResultsModal.module.scss';
-
-interface TestResultsModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-    results: ITestResult;
-    testTitle: string;
-    onViewDetails: () => void;
-}
+import type { IHistoryTestResult } from 'widgets/historyBlock/types/types';
+import type { TestResultsModalProps } from '../types/IResult';
 
 export const TestResultsModal = ({
     isOpen,
@@ -16,8 +10,18 @@ export const TestResultsModal = ({
     results,
     testTitle,
     onViewDetails,
+    mode = 'test',
 }: TestResultsModalProps) => {
-    const percentage = Math.round((results.score / results.total) * 100);
+    const score =
+        mode === 'history'
+            ? (results as IHistoryTestResult).correct
+            : (results as ITestResult).score;
+    const total =
+        mode === 'history'
+            ? (results as IHistoryTestResult).total
+            : (results as ITestResult).total;
+
+    const percentage = Math.round((score / total) * 100);
     const isGoodResult = percentage >= 70;
     const isAverageResult = percentage >= 50 && percentage < 70;
 
@@ -55,21 +59,18 @@ export const TestResultsModal = ({
                             className={styles.scoreProgress}
                             style={
                                 {
-                                    '--progress': `${percentage}%`,
+                                    '--progress': `${percentage * 3.6}`,
                                     '--color': getResultColor(),
                                 } as React.CSSProperties
                             }
                         >
                             <div className={styles.scoreText}>
                                 <span className={styles.scoreNumber}>
-                                    {results.score}
+                                    {score}
                                 </span>
                                 <span className={styles.scoreTotal}>
-                                    /{results.total}
+                                    /{total}
                                 </span>
-                            </div>
-                            <div className={styles.scorePercentage}>
-                                {percentage}%
                             </div>
                         </div>
                     </div>
@@ -81,7 +82,7 @@ export const TestResultsModal = ({
                             Правильных ответов
                         </Typography>
                         <Typography variant="h4" className={styles.statValue}>
-                            {results.score}
+                            {score}
                         </Typography>
                     </div>
                     <div className={styles.statItem}>
@@ -89,7 +90,7 @@ export const TestResultsModal = ({
                             Всего вопросов
                         </Typography>
                         <Typography variant="h4" className={styles.statValue}>
-                            {results.total}
+                            {total}
                         </Typography>
                     </div>
                 </div>
