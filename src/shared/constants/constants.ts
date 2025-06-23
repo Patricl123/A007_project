@@ -9,3 +9,9 @@ export const routes = {
     login: '/login',
     testMore: '/test/:testId',
 };
+
+export const navLink = {
+    test: 'Тесты',
+    questions: 'Вопросы ИИ',
+    profile: 'Профиль',
+};
