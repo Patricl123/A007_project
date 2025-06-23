@@ -75,7 +75,7 @@ export const HeroBlock: FC = () => {
                         variant="secondary"
                         size="lg"
                         className={styles.askButton}
-                        onClick={() => navigate('/ask-ai')}
+                        onClick={() => navigate('/questions')}
                     >
                         <Brain className={styles.icon} />
                         Задать вопрос ИИ

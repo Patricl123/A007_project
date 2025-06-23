@@ -32,7 +32,7 @@ export const Interactive: FC = () => {
                             </Button>
                             <Button
                                 variant="outline"
-                                onClick={() => navigate('/ask')}
+                                onClick={() => navigate('/questions')}
                             >
                                 <BrainIcon />
                                 Задать вопрос ИИ

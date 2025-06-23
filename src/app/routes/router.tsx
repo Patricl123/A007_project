@@ -5,6 +5,7 @@ import { HomePage } from 'pages/home';
 import { LoginPage } from 'pages/loginPage';
 import { ProfilePage } from 'pages/profile';
 import { TestPassPage, TestPage } from 'pages/';
+import { AskAiPage } from 'pages/askAi';
 
 export const router = () =>
     createBrowserRouter([
@@ -37,7 +38,8 @@ export const router = () =>
                 },
                 {
                     path: routes.questions,
-                    element: <div>Questions Page</div>,
+                    element: <AskAiPage />,
+
                 },
             ],
         },
