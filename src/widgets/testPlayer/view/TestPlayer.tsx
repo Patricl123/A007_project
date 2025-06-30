@@ -124,6 +124,8 @@ export const TestPlayer = ({
 
     const navigation = useQuestionNavigation(questionsCount);
 
+    const [isNextDisabled, setIsNextDisabled] = useState(false);
+
     useEffect(() => {
         if (answersData) {
             setTestAnswers(answersData);
@@ -268,10 +270,15 @@ export const TestPlayer = ({
 
     const handleNext = async () => {
         if (mode === 'test') {
+            setIsNextDisabled(true);
             await saveProgress();
         }
         navigation.goNext();
     };
+
+    useEffect(() => {
+        setIsNextDisabled(false);
+    }, [navigation.currentIndex]);
 
     const handleViewDetails = () => {
         setShowResults(false);
@@ -477,6 +484,7 @@ export const TestPlayer = ({
                 answeredCount={Object.keys(answerManagement.answers).length}
                 totalQuestions={questions.length}
                 mode={mode === 'history' ? 'review' : mode}
+                isNextDisabled={isNextDisabled}
             />
 
             {mode === 'test' && testResults && (

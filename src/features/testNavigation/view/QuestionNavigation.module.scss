@@ -198,3 +198,24 @@
         transform: scale(1.1);
     }
 }
+
+.nextSpinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    border: 2.5px solid #6366f1;
+    border-top: 2.5px solid transparent;
+    border-radius: 50%;
+    animation: nextSpin 0.7s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes nextSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
