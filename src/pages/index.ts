@@ -7,7 +7,12 @@ export const TestPage = lazy(() =>
 );
 
 export const TestPassPage = lazy(() =>
-    import('./testMore/view/TestPassPage').then((module) => ({
+    import('./testPass/view/TestPassPage').then((module) => ({
         default: module.TestPassPage,
+    })),
+);
+export const SubjectsPage = lazy(() =>
+    import('./subjects/view/SubjectsPage').then((module) => ({
+        default: module.SubjectsPage,
     })),
 );

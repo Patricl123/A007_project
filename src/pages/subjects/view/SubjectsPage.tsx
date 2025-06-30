@@ -1,5 +1,10 @@
 import type { FC } from 'react';
+import { SubjectsBlock } from 'widgets/subjectsBlock';
 
 export const SubjectsPage: FC = () => {
-    return <div>Subjects</div>;
+    return (
+        <>
+            <SubjectsBlock />
+        </>
+    );
 };

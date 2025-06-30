@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { testProgressApi } from 'features/testSubmission/api/testProgressApi';
+import { testProgressApi } from 'features/testProgress';
 import { useAuthStore } from 'widgets/login/store/useAuthStore';
 
 export interface IInProgressTest {

@@ -19,7 +19,7 @@ export const InProgressTests = () => {
     };
 
     if (error) {
-        console.error('Failed to load in-progress tests', error);
+        console.error('Ошибка в запросе прогресса', error);
         return null;
     }
 
@@ -58,10 +58,10 @@ export const InProgressTests = () => {
     return (
         <Container className={styles.wrapper}>
             <div className={styles.header}>
-                <Typography variant="h2" className={styles.title}>
+                <Typography variant="h2" color="gradient-blue">
                     Продолжить прохождение
                 </Typography>
-                <Typography variant="base" className={styles.subtitle}>
+                <Typography variant="large">
                     У вас есть {validTests.length} незавершенных тестов
                 </Typography>
             </div>

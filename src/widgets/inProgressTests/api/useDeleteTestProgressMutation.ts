@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { testProgressApi } from 'features/testSubmission/api/testProgressApi';
 import { useAuthStore } from 'widgets/login/store/useAuthStore';
 import type { IInProgressTest } from './useInProgressTestsQuery';
+import { testProgressApi } from 'features/testProgress';
 
 export const useDeleteTestProgressMutation = () => {
     const queryClient = useQueryClient();
@@ -27,7 +27,7 @@ export const useDeleteTestProgressMutation = () => {
             return { previousTests };
         },
         onError: (err, _testId, context) => {
-            console.error('Failed to delete test progress', err);
+            console.error('Ошибка при удалении теста', err);
             if (context?.previousTests) {
                 queryClient.setQueryData(queryKey, context.previousTests);
             }

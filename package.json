@@ -9,7 +9,8 @@
         "preview": "vite preview",
         "prepare": "husky",
         "lint": "eslint . --fix --report-unused-disable-directives --max-warnings 0 && npx lint-staged",
-        "format": "prettier . --write"
+        "format": "prettier . --write",
+        "lint-staged:run": "lint-staged"
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown",

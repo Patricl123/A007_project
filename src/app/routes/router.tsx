@@ -4,8 +4,10 @@ import { createBrowserRouter } from 'react-router-dom';
 import { HomePage } from 'pages/home';
 import { LoginPage } from 'pages/loginPage';
 import { ProfilePage } from 'pages/profile';
+import { SubjectsPage } from 'pages/';
 import { TestPassPage, TestPage } from 'pages/';
 import { AskAiPage } from 'pages/askAi';
+import { TestHistoryPage } from 'pages/testHistory';
 import { ProtectedRoute } from 'shared/lib/routing/ProtectedRoute';
 
 export const router = () =>
@@ -27,7 +29,7 @@ export const router = () =>
                 },
                 {
                     path: routes.subjects,
-                    element: <div>subjects</div>,
+                    element: <SubjectsPage />,
                 },
                 {
                     path: routes.test,
@@ -39,11 +41,19 @@ export const router = () =>
                 },
                 {
                     path: routes.testMore,
-                    element: <TestPassPage />,
+                    element: <TestPassPage mode="test" />,
+                },
+                {
+                    path: routes.testReview,
+                    element: <TestPassPage mode="review" />,
                 },
                 {
                     path: routes.questions,
                     element: <AskAiPage />,
+                },
+                {
+                    path: '/test-history/:historyId/:testId',
+                    element: <TestHistoryPage />,
                 },
             ],
         },

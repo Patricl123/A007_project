@@ -1,22 +1,24 @@
 .platformSection {
-    padding: 5rem;
+    padding: 80px;
     background-color: $white;
     text-align: center;
 }
+
 .titleMain {
     background: $gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
 }
+
 .card {
     width: 280px;
     height: 300px;
     background-color: #fff;
     text-align: center;
-    padding: 1.5rem;
+    padding: 24px;
     transition: all 0.3s ease;
-    border-radius: 0.5rem;
+    border-radius: 8px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     &:hover {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -25,39 +27,42 @@
 }
 
 .iconWrapper {
-    width: 4rem; // 64px
-    height: 4rem;
-    border-radius: 1rem; // 16px
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem;
+    margin: 0 auto 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .icon {
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     color: white;
 }
 
 .title {
     font-size: 20px;
-    margin-bottom: 0.75rem;
+    margin-bottom: 12px;
 }
 
 .description {
     color: #4b5563;
     line-height: 1.6;
 }
+
 .listPlatform {
-    margin-top: 4rem;
+    margin-top: 64px;
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 38px;
 }
+
 .subtitle {
-    margin-top: 0.5rem;
+    margin-top: 8px;
     color: #6b7280;
     width: 768px;
     margin: 0 auto;

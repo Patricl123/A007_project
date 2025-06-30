@@ -28,12 +28,6 @@
         gap: 16px;
         text-align: center;
         position: relative;
-
-        h4 {
-            color: #64748b;
-            font-weight: 500;
-            opacity: 0.9;
-        }
     }
 }
 
@@ -74,21 +68,6 @@
     flex-direction: column;
     gap: 12px;
     text-align: center;
-
-    h3 {
-        font-size: 32px;
-        font-weight: 700;
-        background: linear-gradient(135deg, #9333ea, #c084fc);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    h4 {
-        color: #64748b;
-        font-weight: 500;
-        opacity: 0.9;
-    }
 }
 
 .userTestsList {

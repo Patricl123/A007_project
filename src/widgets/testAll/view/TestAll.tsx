@@ -16,10 +16,10 @@ export const TestAll = () => {
         <Container>
             <div className={styles.testAll}>
                 <div className={styles.textPart}>
-                    <Typography variant="h2" color="gradient">
+                    <Typography variant="h2" color="gradient-blue">
                         Доступные тесты
                     </Typography>
-                    <Typography variant="h4">
+                    <Typography variant="large" color="muted">
                         Выберите тест для проверки своих знаний
                     </Typography>
                 </div>
@@ -34,10 +34,10 @@ export const TestAll = () => {
                 {hasUserTests && (
                     <div className={styles.userTestsSection}>
                         <div className={styles.userTestsHeader}>
-                            <Typography variant="h3" color="gradient">
+                            <Typography variant="h2" color="gradient-blue">
                                 Мои тесты
                             </Typography>
-                            <Typography variant="h4">
+                            <Typography variant="large" color="muted">
                                 Ваши созданные тесты для быстрого доступа
                             </Typography>
                         </div>

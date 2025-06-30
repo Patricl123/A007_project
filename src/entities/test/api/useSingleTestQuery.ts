@@ -8,10 +8,13 @@ const getTest = async (testId: string): Promise<ITest> => {
     return data;
 };
 
-export const useSingleTestQuery = (testId: string | undefined) => {
+export const useSingleTestQuery = (
+    testId: string | undefined,
+    options?: { enabled?: boolean },
+) => {
     return useQuery({
         queryKey: ['single-test', testId],
         queryFn: () => getTest(testId!),
-        enabled: !!testId,
+        enabled: options?.enabled ?? !!testId,
     });
 };

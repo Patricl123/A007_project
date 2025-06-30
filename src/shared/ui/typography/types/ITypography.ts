@@ -17,6 +17,7 @@ export type TypographyColor =
     | 'secondary'
     | 'white'
     | 'gradient'
+    | 'gradient-blue'
     | 'lightgrey';
 
 export interface TypographyProps {

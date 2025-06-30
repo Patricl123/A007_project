@@ -1,0 +1,117 @@
+.content {
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 32px;
+}
+
+.testTitle {
+    margin-bottom: 8px;
+    color: #1e293b;
+}
+
+.resultMessage {
+    color: #64748b;
+    font-weight: 500;
+}
+
+.scoreSection {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.scoreCircle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.scoreProgress {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--color) calc(var(--progress) * 1deg),
+        #e2e8f0 calc(var(--progress) * 1deg)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background: white;
+        border-radius: 50%;
+    }
+}
+
+.scoreText {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scoreNumber {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $accent-color;
+    line-height: 1;
+}
+
+.scoreTotal {
+    font-size: 1.2rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 32px;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statLabel {
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.statValue {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.closeBtn {
+    background: white;
+    color: #64748b;
+    border: 2px solid #e2e8f0;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+        color: #475569;
+    }
+}

@@ -1,8 +1,5 @@
 import type { ReactNode, HTMLAttributes } from 'react';
 
-export type DropdownVariant = 'default' | 'outline' | 'ghost';
-export type DropdownSize = 'default' | 'sm' | 'lg';
-
 export interface DropdownOption {
     value: string;
     label: ReactNode;
@@ -15,8 +12,8 @@ export interface DropdownProps
     value?: string;
     onChange?: (value: string) => void;
     placeholder?: string;
-    variant?: DropdownVariant;
-    size?: DropdownSize;
     className?: string;
     disabled?: boolean;
+    isOpen?: boolean;
+    onOpenChange?: (isOpen: boolean) => void;
 }
