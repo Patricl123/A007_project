@@ -1,13 +1,15 @@
 import { Calculator } from 'lucide-react';
-import { Typography } from 'shared/ui';
+import { Container, Loader, Typography } from 'shared/ui';
 import styles from './HistoryBlock.module.scss';
 import { useHistoryQuery } from '../api/useHistoryQuery';
 
 export const HistoryBlock = () => {
     const { data, isLoading, error } = useHistoryQuery();
 
+    if (isLoading) return <Loader />;
+
     return (
-        <div className={styles.wrapper}>
+        <Container className={styles.wrapper}>
             <div className={styles.title}>
                 <div className={styles.icon}>
                     <Calculator size={30} color="#fafcfc" />
@@ -55,6 +57,6 @@ export const HistoryBlock = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </Container>
     );
 };

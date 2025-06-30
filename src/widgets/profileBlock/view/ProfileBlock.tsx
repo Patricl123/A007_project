@@ -1,12 +1,12 @@
 import { User } from 'lucide-react';
-import { Label, Typography } from 'shared/ui';
+import { Container, Label, Typography } from 'shared/ui';
 import styles from './ProfileBlock.module.scss';
 import { useAuthStore } from 'widgets/login/store/useAuthStore';
 
 export const ProfileBlock = () => {
     const { username } = useAuthStore();
     return (
-        <div className={styles.wrapper}>
+        <Container className={styles.wrapper}>
             <div className={styles.item}>
                 <div className={styles.title}>
                     <div className={styles.userIcon}>
@@ -24,6 +24,6 @@ export const ProfileBlock = () => {
                 <Label className={styles.label}>Имя пользователя:</Label>
                 <Typography variant="base">{username}</Typography>
             </div>
-        </div>
+        </Container>
     );
 };

@@ -6,11 +6,20 @@ import { LoginPage } from 'pages/loginPage';
 import { ProfilePage } from 'pages/profile';
 import { TestPassPage, TestPage } from 'pages/';
 import { AskAiPage } from 'pages/askAi';
+import { ProtectedRoute } from 'shared/lib/routing/ProtectedRoute';
 
 export const router = () =>
     createBrowserRouter([
         {
-            element: <Layout />,
+            path: routes.login,
+            element: <LoginPage />,
+        },
+        {
+            element: (
+                <ProtectedRoute>
+                    <Layout />
+                </ProtectedRoute>
+            ),
             children: [
                 {
                     path: routes.home,
@@ -19,10 +28,6 @@ export const router = () =>
                 {
                     path: routes.subjects,
                     element: <div>subjects</div>,
-                },
-                {
-                    path: routes.login,
-                    element: <LoginPage />,
                 },
                 {
                     path: routes.test,
@@ -39,7 +44,6 @@ export const router = () =>
                 {
                     path: routes.questions,
                     element: <AskAiPage />,
-
                 },
             ],
         },
