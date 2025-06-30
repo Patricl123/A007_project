@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import styles from './TestGenerator.module.scss';
-import { Container, Typography } from 'shared/ui';
+import { Container, Typography, Input } from 'shared/ui';
 import { Calculator, Target, Sparkles } from 'lucide-react';
 import { DropdownPicker } from '../../dropdownPicker/view/DropdownPicker';
 import { useAllTopicsQuery } from 'widgets/testGenerator/api/useTestQuery';
 import { useGenerateTestMutation } from 'widgets/testGenerator/api/useGenerateTestMutation';
+import classNames from 'classnames';
 
 export const TestGenerator = () => {
     const { data: topics } = useAllTopicsQuery();
@@ -19,8 +20,13 @@ export const TestGenerator = () => {
         '2': 'Выберите уровень...',
     });
 
+    const [customTopicName, setCustomTopicName] = useState('');
+    const [customTopicDescription, setCustomTopicDescription] = useState('');
+
     const dropdownOptions: { [key: string]: string[] } = {
-        '1': topics ? topics.map((topic) => topic.name) : [],
+        '1': topics
+            ? ['Свой топик', ...topics.map((topic) => topic.name)]
+            : ['Свой топик'],
         '2': ['Начальный', 'Средний', 'Продвинутый'],
     };
 
@@ -54,11 +60,25 @@ export const TestGenerator = () => {
     };
 
     const canStartTest =
-        selectedValues['1'] !== 'Выберите тему...' &&
+        ((selectedValues['1'] !== 'Выберите тему...' &&
+            selectedValues['1'] !== 'Свой топик') ||
+            (selectedValues['1'] === 'Свой топик' &&
+                customTopicName.trim() &&
+                customTopicDescription.trim())) &&
         selectedValues['2'] !== 'Выберите уровень...';
 
     const handleGenerateTest = () => {
         if (!canStartTest || !topics) return;
+
+        if (selectedValues['1'] === 'Свой топик') {
+            const payload = {
+                difficulty: selectedValues['2'].toLowerCase(),
+                customTopicName: customTopicName.trim(),
+                customTopicDescription: customTopicDescription.trim(),
+            };
+            generateTestMutation.mutate(payload);
+            return;
+        }
 
         const selectedTopic = topics.find(
             (topic) => topic.name === selectedValues['1'],
@@ -106,6 +126,43 @@ export const TestGenerator = () => {
                         />
                     ))}
                 </div>
+                {
+                    <div
+                        className={classNames(styles.customTopicFields, {
+                            [styles.customTopicFieldsHidden]:
+                                selectedValues['1'] !== 'Свой топик',
+                        })}
+                    >
+                        <div className={styles.inputWrapper}>
+                            <div className={styles.inputContainer}>
+                                <Input
+                                    placeholder="Введите название вашей темы"
+                                    value={customTopicName}
+                                    onChange={(e) =>
+                                        setCustomTopicName(e.target.value)
+                                    }
+                                    fullWidth
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className={styles.textareaWrapper}>
+                            <div className={styles.textareaContainer}>
+                                <textarea
+                                    className={styles.textarea}
+                                    placeholder="Опишите, что должен включать тест"
+                                    value={customTopicDescription}
+                                    onChange={(e) =>
+                                        setCustomTopicDescription(
+                                            e.target.value,
+                                        )
+                                    }
+                                    required
+                                />
+                            </div>
+                        </div>
+                    </div>
+                }
 
                 <div className={styles.startPart}>
                     <div className={styles.floatingElements}>

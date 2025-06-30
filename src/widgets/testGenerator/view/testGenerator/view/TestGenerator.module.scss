@@ -22,6 +22,136 @@
     width: 100%;
 }
 
+.customTopicFields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 1000px;
+    padding: 24px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, #ffffff, #fafbfc);
+    position: relative;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+    opacity: 1;
+    overflow: hidden;
+
+    transition:
+        opacity 0.4s ease,
+        max-height 0.4s ease,
+        padding 0.4s ease,
+        margin 0.4s ease,
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(38, 99, 235, 0.05) 0%,
+            rgba(34, 87, 203, 0.03) 50%,
+            rgba(236, 254, 255, 0.05) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: -1;
+        border-radius: 20px;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 12px 25px rgba(38, 99, 235, 0.08),
+            0 5px 10px rgba(0, 0, 0, 0.1);
+        border-color: rgba(38, 99, 235, 0.2);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.customTopicFieldsHidden {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-width: 0;
+
+    .inputWrapper,
+    .textareaWrapper {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.inputWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition:
+        opacity 0.3s ease 0.1s,
+        transform 0.3s ease 0.1s;
+}
+
+.inputContainer {
+    position: relative;
+}
+
+.textareaWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition:
+        opacity 0.3s ease 0.1s,
+        transform 0.3s ease 0.1s;
+}
+
+.textareaContainer {
+    position: relative;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    border-radius: 8px;
+    border: 1px solid $border;
+    background: linear-gradient(135deg, $white, rgba($white-grey, 0.3));
+    color: $black;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+    position: relative;
+    z-index: 2;
+
+    &::placeholder {
+        color: $muted;
+        opacity: 0.7;
+        font-weight: 400;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+    }
+}
+
 .startPart {
     display: flex;
     flex-direction: column;
@@ -36,7 +166,7 @@
     position: relative;
     overflow: hidden;
     box-shadow:
-        0 8px 32px rgba($violet, 0.08),
+        0 8px 32px rgba($accent-color, 0.08),
         0 4px 16px rgba(0, 0, 0, 0.04);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -50,9 +180,9 @@
         background: conic-gradient(
             from 0deg,
             transparent,
-            rgba($violet, 0.03),
+            rgba($accent-color, 0.03),
             transparent,
-            rgba($violet, 0.03),
+            rgba($accent-color, 0.03),
             transparent
         );
         animation: rotate 20s linear infinite;
@@ -68,9 +198,9 @@
         bottom: 0;
         background: linear-gradient(
             135deg,
-            rgba($violet, 0.02) 0%,
+            rgba($accent-color, 0.02) 0%,
             transparent 50%,
-            rgba($violet, 0.02) 100%
+            rgba($accent-color, 0.02) 100%
         );
         opacity: 0;
         transition: opacity 0.4s ease;
@@ -80,9 +210,9 @@
     &:hover {
         transform: translateY(-4px) scale(1.01);
         box-shadow:
-            0 16px 40px rgba($violet, 0.12),
+            0 16px 40px rgba($accent-color, 0.12),
             0 8px 20px rgba(0, 0, 0, 0.08);
-        border-color: rgba($violet, 0.2);
+        border-color: rgba($accent-color, 0.2);
 
         &::after {
             opacity: 1;

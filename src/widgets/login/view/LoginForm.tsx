@@ -56,6 +56,7 @@ export const LoginForm: FC = () => {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             placeholder="Введите ваш логин"
+                            isPaddingLeft
                         >
                             <KeyRound
                                 size={18}
@@ -77,6 +78,7 @@ export const LoginForm: FC = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Введите ваш пароль"
+                            isPaddingLeft
                         >
                             <Lock
                                 size={18}
