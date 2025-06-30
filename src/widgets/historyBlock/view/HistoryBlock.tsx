@@ -1,7 +1,7 @@
 import { Calculator } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { Typography } from 'shared/ui';
+import { Container, Loader, Typography } from 'shared/ui';
 import { TestResultsModal } from 'features/testResults';
 import styles from './HistoryBlock.module.scss';
 import { useHistoryQuery } from '../api/useHistoryQuery';
@@ -45,8 +45,10 @@ export const HistoryBlock = () => {
         }
     };
 
+    if (isLoading) return <Loader />;
+
     return (
-        <div className={styles.wrapper}>
+        <Container className={styles.wrapper}>
             <div className={styles.title}>
                 <div className={styles.icon}>
                     <Calculator size={30} color="#fafcfc" />
@@ -122,6 +124,6 @@ export const HistoryBlock = () => {
                         mode="history"
                     />
                 ) : null)}
-        </div>
+        </Container>
     );
 };

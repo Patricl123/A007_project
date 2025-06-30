@@ -1,7 +1,8 @@
 import { AuthRedirectWatcher } from 'features/authWatcher/AuthWatcher';
 import { type FC, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Loader, ScrollToTop } from 'shared/ui';
+import { ScrollToTop } from 'shared/lib/routing/ScrollToTop';
+import { Loader, ScrollToTopButton } from 'shared/ui';
 import { Footer } from 'widgets/footer';
 import { Header } from 'widgets/header';
 
@@ -10,10 +11,11 @@ export const Layout: FC = () => {
         <>
             <AuthRedirectWatcher />
             <Header />
+            <ScrollToTop />
             <Suspense fallback={<Loader />}>
                 <main>
                     <Outlet />
-                    <ScrollToTop />
+                    <ScrollToTopButton />
                 </main>
             </Suspense>
             <Footer />

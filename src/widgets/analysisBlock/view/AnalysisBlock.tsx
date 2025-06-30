@@ -1,16 +1,16 @@
 import { ChartColumn } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import styles from './AnalysisBlock.module.scss';
-import { Typography } from 'shared/ui';
+import { Container, Loader, Typography } from 'shared/ui';
 import { useAnalysisQuery } from '../api/useAnalysisQuery';
 
 export const AnalysisBlock = () => {
     const { data, error, isLoading } = useAnalysisQuery();
     if (error) return <div>failed with error: {error.message}</div>;
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <Loader />;
 
     return (
-        <div className={styles.wrapper}>
+        <Container className={styles.wrapper}>
             <div className={styles.titleBlock}>
                 <div className={styles.title}>
                     <div className={styles.icon}>
@@ -36,6 +36,6 @@ export const AnalysisBlock = () => {
                     </Typography>
                 )}
             </div>
-        </div>
+        </Container>
     );
 };
