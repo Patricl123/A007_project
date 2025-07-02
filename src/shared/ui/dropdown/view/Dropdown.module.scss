@@ -17,6 +17,12 @@
     user-select: none;
     position: relative;
     overflow: hidden;
+    @include Tablet {
+        padding: 12px 16px;
+    }
+    @include Mobile {
+        padding: 10px 14px;
+    }
 }
 
 .toggle.active {
@@ -41,6 +47,12 @@
     color: #374151;
     font-size: 15px;
     transition: all 0.3s ease;
+    @include Tablet {
+        font-size: 14px;
+    }
+    @include Mobile {
+        font-size: 13px;
+    }
 }
 
 .placeholder {
@@ -100,6 +112,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include Tablet {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    @include Mobile {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
 }
 
 .option:hover:not(.disabled) {

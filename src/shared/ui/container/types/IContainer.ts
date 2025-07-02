@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 
-export interface IContainerProps {
+export type ContainerProps = {
     children: ReactNode;
     className?: string;
-    header?: boolean;
-}
+};
