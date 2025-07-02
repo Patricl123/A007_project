@@ -11,6 +11,8 @@ export default defineConfig({
             pages: '/src/pages',
             features: '/src/features',
             entities: '/src/entities',
+            mixins: '/src/app/styles/mixins.scss',
+            var: '/src/app/styles/var.scss',
         },
     },
 
