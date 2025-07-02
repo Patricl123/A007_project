@@ -3,4 +3,10 @@
     width: 100%;
     margin: 0 auto;
     padding: 0px 100px;
+    @media (max-width: 1024px) {
+        padding: 0px 50px;
+    }
+    @media (max-width: 743px) {
+        padding: 0px 20px;
+    }
 }

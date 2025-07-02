@@ -1,5 +1,5 @@
 import { Button, Typography } from 'shared/ui';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     Calculator,
     BookOpen,
@@ -29,52 +29,50 @@ export const TestCard = ({
     isUserTest = false,
 }: TestCardProps) => {
     const Icon = icons[index % icons.length];
-
+    const navigate = useNavigate();
     return (
-        <Link to={`/test/${test.testId}`} className={styles.itemLink}>
-            <div className={styles.testCard}>
-                {isUserTest && (
-                    <div className={styles.userTestBadge}>
-                        <User size={16} />
-                        <span>Мои тесты</span>
-                    </div>
-                )}
-
-                <div className={styles.cardHeader}>
-                    <div className={styles.icon}>
-                        <Icon
-                            color="#FFFFFF"
-                            className={styles.iconCalculator}
-                        />
-                    </div>
-                    <Typography variant="large" className={styles.cardTitle}>
-                        {test.title}
-                    </Typography>
+        <div
+            className={styles.testCard}
+            onClick={() => navigate(`/test/${test.testId}`)}
+        >
+            {isUserTest && (
+                <div className={styles.userTestBadge}>
+                    <User size={16} />
+                    <span>Мои тесты</span>
                 </div>
+            )}
 
-                <div className={styles.cardInfo}>
-                    <div className={styles.infoItem}>
-                        <HelpCircle size={18} />
-                        <span>Сложность: {test.difficulty}</span>
-                    </div>
-                    <div className={styles.infoItem}>
-                        <HelpCircle size={18} />
-                        <span>Вопросов: {test.questionCount}</span>
-                    </div>
-                    <div className={styles.infoItem}>
-                        <Clock size={18} />
-                        <span>Время: {test.timeLimit / 60} мин.</span>
-                    </div>
+            <div className={styles.cardHeader}>
+                <div className={styles.icon}>
+                    <Icon color="#FFFFFF" className={styles.iconCalculator} />
                 </div>
+                <Typography variant="large" className={styles.cardTitle}>
+                    {test.title}
+                </Typography>
+            </div>
 
-                <div className={styles.cardFooter}>
-                    <Button variant="default">
-                        <Typography variant="small" color="white">
-                            Начать тест
-                        </Typography>
-                    </Button>
+            <div className={styles.cardInfo}>
+                <div className={styles.infoItem}>
+                    <HelpCircle size={18} />
+                    <span>Сложность: {test.difficulty}</span>
+                </div>
+                <div className={styles.infoItem}>
+                    <HelpCircle size={18} />
+                    <span>Вопросов: {test.questionCount}</span>
+                </div>
+                <div className={styles.infoItem}>
+                    <Clock size={18} />
+                    <span>Время: {test.timeLimit / 60} мин.</span>
                 </div>
             </div>
-        </Link>
+
+            <div className={styles.cardFooter}>
+                <Button variant="default">
+                    <Typography variant="small" color="white">
+                        Начать тест
+                    </Typography>
+                </Button>
+            </div>
+        </div>
     );
 };
