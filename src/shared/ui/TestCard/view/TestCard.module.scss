@@ -1,6 +1,3 @@
-.itemLink {
-}
-
 .testCard {
     display: flex;
     flex-direction: column;
@@ -24,6 +21,18 @@
     min-height: 260px;
     position: relative;
     overflow: hidden;
+
+    @include Tablet {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    @include Mobile {
+        padding: 16px;
+        border-radius: 16px;
+        min-height: auto;
+        max-width: 360px;
+    }
 
     &::before {
         content: '';
@@ -90,13 +99,15 @@
     transition: all 0.3s ease;
     max-width: fit-content;
 
+    @include Mobile {
+        font-size: 9px;
+        padding: 4px 8px;
+    }
+
     &::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background: linear-gradient(
             135deg,
             rgba($accent-color-hover, 0.05),
@@ -129,6 +140,11 @@
     position: relative;
     z-index: 1;
 
+    @include Mobile {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
     .icon {
         display: flex;
         align-items: center;
@@ -141,19 +157,32 @@
         transition: all 0.3s ease;
         box-shadow: 0 4px 12px rgba($accent-color, 0.2);
 
+        @include Mobile {
+            width: 44px;
+            height: 44px;
+        }
+
         .iconCalculator {
             width: 28px;
             height: 28px;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+
+            @include Mobile {
+                width: 22px;
+                height: 22px;
+            }
         }
     }
 
     .cardTitle {
         font-weight: 600;
-        font-size: 19px;
         color: $black;
         transition: color 0.3s ease;
         line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 }
 
@@ -166,12 +195,33 @@
     position: relative;
     z-index: 1;
 
+    @include Tablet {
+        font-size: 13px;
+        gap: 10px;
+    }
+
+    @include Mobile {
+        font-size: 12px;
+        gap: 8px;
+    }
+
     .infoItem {
         display: flex;
         align-items: center;
         gap: 10px;
         padding: 6px 0;
         font-weight: 500;
+
+        @include Tablet {
+            gap: 8px;
+            padding: 5px 0;
+        }
+
+        @include Mobile {
+            gap: 6px;
+            padding: 4px 0;
+            flex-wrap: wrap;
+        }
 
         svg {
             color: $accent-color;
@@ -188,6 +238,7 @@
                 opacity: 1;
                 transform: scale(1.1);
             }
+
             span {
                 color: $black;
             }
@@ -202,9 +253,22 @@
     position: relative;
     z-index: 1;
 
+    @include Tablet {
+        padding-top: 20px;
+    }
+
+    @include Mobile {
+        padding-top: 16px;
+    }
+
     button {
         width: 100%;
         transition: all 0.3s ease;
         box-shadow: 0 4px 12px rgba($accent-color, 0.2);
+
+        @include Mobile {
+            font-size: 14px;
+            padding: 10px;
+        }
     }
 }

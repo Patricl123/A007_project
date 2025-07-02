@@ -46,7 +46,7 @@ export const TestCard = ({
                 <div className={styles.icon}>
                     <Icon color="#FFFFFF" className={styles.iconCalculator} />
                 </div>
-                <Typography variant="large" className={styles.cardTitle}>
+                <Typography variant="h4" className={styles.cardTitle}>
                     {test.title}
                 </Typography>
             </div>

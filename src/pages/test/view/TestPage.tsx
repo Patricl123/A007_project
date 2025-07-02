@@ -26,9 +26,9 @@ export const TestPage: FC = () => {
 
     return (
         <div className={styles.testPage}>
-            {/* <InProgressTests /> */}
+            <InProgressTests />
             <TestAll />
-            {/* <TestGenerator /> */}
+            <TestGenerator />
         </div>
     );
 };

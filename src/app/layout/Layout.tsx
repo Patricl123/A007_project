@@ -10,7 +10,7 @@ export const Layout: FC = () => {
     return (
         <>
             <AuthRedirectWatcher />
-            {/* <Header /> */}
+            <Header />
             <ScrollToTop />
             <Suspense fallback={<Loader />}>
                 <main>
@@ -18,7 +18,7 @@ export const Layout: FC = () => {
                     <ScrollToTopButton />
                 </main>
             </Suspense>
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 };

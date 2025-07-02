@@ -3,10 +3,11 @@
     width: 100%;
     margin: 0 auto;
     padding: 0px 100px;
-    @media (max-width: 1024px) {
-        padding: 0px 50px;
+    @include Tablet {
+        padding: 0 48px;
     }
-    @media (max-width: 743px) {
-        padding: 0px 20px;
+
+    @include Mobile {
+        padding: 0 20px;
     }
 }

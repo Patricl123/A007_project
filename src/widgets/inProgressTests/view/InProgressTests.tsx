@@ -1,12 +1,13 @@
 import { useInProgressTestsQuery } from '../api/useInProgressTestsQuery';
 import { Typography, Card, Container } from 'shared/ui';
 import styles from './InProgressTests.module.scss';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Hourglass, Clock, CheckCircle2, Play, Trash2 } from 'lucide-react';
 import { useDeleteTestProgressMutation } from '../api/useDeleteTestProgressMutation';
 
 export const InProgressTests = () => {
     const { data: tests, error } = useInProgressTestsQuery();
+    const navigate = useNavigate();
     const deleteMutation = useDeleteTestProgressMutation();
 
     const handleDelete = (
@@ -71,107 +72,101 @@ export const InProgressTests = () => {
                     const progressStatus = getProgressStatus(progress.progress);
 
                     return (
-                        <Link
-                            to={`/test/${progress.testId}`}
+                        <Card
+                            onClick={() => navigate(`/test/${progress.testId}`)}
+                            className={styles.card}
                             key={progress._id || progress.testId}
-                            className={styles.item}
                         >
-                            <Card className={styles.card}>
-                                <div className={styles.cardHeader}>
-                                    <div className={styles.headerLeft}>
-                                        <div
-                                            className={styles.statusBadge}
-                                            style={{
-                                                backgroundColor: `${progressStatus.color}15`,
-                                                color: progressStatus.color,
-                                            }}
-                                        >
-                                            <CheckCircle2 size={14} />
-                                            {progressStatus.text}
-                                        </div>
-                                    </div>
-                                    <div className={styles.headerRight}>
-                                        <button
-                                            className={styles.deleteButton}
-                                            onClick={(e) =>
-                                                handleDelete(e, progress.testId)
-                                            }
-                                            disabled={deleteMutation.isPending}
-                                        >
-                                            <Trash2 size={16} />
-                                        </button>
-                                        <div className={styles.progressPercent}>
-                                            {progress.progress}%
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className={styles.cardContent}>
-                                    <Typography
-                                        variant="h4"
-                                        className={styles.testTitle}
+                            <div className={styles.cardHeader}>
+                                <div className={styles.headerLeft}>
+                                    <div
+                                        className={styles.statusBadge}
+                                        style={{
+                                            backgroundColor: `${progressStatus.color}15`,
+                                            color: progressStatus.color,
+                                        }}
                                     >
-                                        {progress.title}
-                                    </Typography>
-
-                                    <div className={styles.progressSection}>
-                                        <div className={styles.progressBar}>
-                                            <div
-                                                className={styles.progressFill}
-                                                style={{
-                                                    width: `${progress.progress}%`,
-                                                    backgroundColor:
-                                                        progressStatus.color,
-                                                }}
-                                            />
-                                        </div>
-                                        <Typography
-                                            variant="small"
-                                            className={styles.progressText}
-                                        >
-                                            Прогресс: {progress.progress}%
-                                            завершено
-                                        </Typography>
+                                        <CheckCircle2 size={14} />
+                                        {progressStatus.text}
                                     </div>
                                 </div>
+                                <div className={styles.headerRight}>
+                                    <button
+                                        className={styles.deleteButton}
+                                        onClick={(e) =>
+                                            handleDelete(e, progress.testId)
+                                        }
+                                        disabled={deleteMutation.isPending}
+                                    >
+                                        <Trash2 size={16} />
+                                    </button>
+                                    <div className={styles.progressPercent}>
+                                        {progress.progress}%
+                                    </div>
+                                </div>
+                            </div>
 
-                                <div className={styles.cardFooter}>
-                                    <div className={styles.infoRow}>
+                            <div className={styles.cardContent}>
+                                <Typography
+                                    variant="h4"
+                                    className={styles.testTitle}
+                                >
+                                    {progress.title}
+                                </Typography>
+
+                                <div className={styles.progressSection}>
+                                    <div className={styles.progressBar}>
+                                        <div
+                                            className={styles.progressFill}
+                                            style={{
+                                                width: `${progress.progress}%`,
+                                                backgroundColor:
+                                                    progressStatus.color,
+                                            }}
+                                        />
+                                    </div>
+                                    <Typography
+                                        variant="small"
+                                        className={styles.progressText}
+                                    >
+                                        Прогресс: {progress.progress}% завершено
+                                    </Typography>
+                                </div>
+                            </div>
+
+                            <div className={styles.cardFooter}>
+                                <div className={styles.infoRow}>
+                                    <div className={styles.infoItem}>
+                                        <Hourglass
+                                            size={16}
+                                            className={styles.icon}
+                                        />
+                                        <span>
+                                            Вопрос{' '}
+                                            {progress.currentQuestionIndex + 1}
+                                        </span>
+                                    </div>
+
+                                    {progress.timeLeft && (
                                         <div className={styles.infoItem}>
-                                            <Hourglass
+                                            <Clock
                                                 size={16}
                                                 className={styles.icon}
                                             />
                                             <span>
-                                                Вопрос{' '}
-                                                {progress.currentQuestionIndex +
-                                                    1}
+                                                Осталось:{' '}
+                                                {formatTime(progress.timeLeft)}
                                             </span>
                                         </div>
-
-                                        {progress.timeLeft && (
-                                            <div className={styles.infoItem}>
-                                                <Clock
-                                                    size={16}
-                                                    className={styles.icon}
-                                                />
-                                                <span>
-                                                    Осталось:{' '}
-                                                    {formatTime(
-                                                        progress.timeLeft,
-                                                    )}
-                                                </span>
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    <div className={styles.continueButton}>
-                                        <Play size={16} />
-                                        <span>Продолжить</span>
-                                    </div>
+                                    )}
                                 </div>
-                            </Card>
-                        </Link>
+
+                                <div className={styles.continueButton}>
+                                    <Play size={16} />
+                                    <span>Продолжить</span>
+                                </div>
+                            </div>
+                        </Card>
                     );
                 })}
             </div>
