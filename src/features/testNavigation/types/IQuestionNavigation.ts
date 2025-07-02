@@ -8,4 +8,5 @@ export interface QuestionNavigationProps {
     answeredCount: number;
     totalQuestions: number;
     mode?: 'test' | 'review';
+    isNextDisabled?: boolean;
 }

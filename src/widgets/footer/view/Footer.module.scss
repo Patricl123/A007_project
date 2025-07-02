@@ -3,18 +3,35 @@
     background-color: $dark-blue;
 
     .top {
-        width: 1200px;
+        max-width: 1200px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: start;
+        gap: 80px;
+
+        @include Mobile {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+        }
 
         .blockLogo {
-            width: 400px;
+            max-width: 400px;
 
             .logo {
                 margin-bottom: 10px;
                 height: 45px;
+
+                @include Mobile {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 0;
+                }
+
                 img {
                     height: 100%;
                 }
@@ -22,22 +39,26 @@
         }
 
         .navBar {
-            width: 150px;
+            max-width: 150px;
 
             .sections {
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
 
             li {
-                margin-top: 8px;
+                margin-top: 2px;
             }
         }
 
         .contacts {
-            width: 400px;
+            max-width: 400px;
             display: flex;
             flex-direction: column;
             gap: 20px;
+
+            @include Mobile {
+                gap: 10px;
+            }
         }
     }
 

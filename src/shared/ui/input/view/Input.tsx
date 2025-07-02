@@ -21,6 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             pattern,
             fullWidth = false,
             children,
+            isPaddingLeft = false,
             ...props
         },
         ref,
@@ -33,6 +34,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 [styles.long]: size === 'long',
                 [styles.disabled]: disabled,
                 [styles.fullWidth]: fullWidth,
+                [styles.isPaddingLeft]: isPaddingLeft,
             },
             className,
         );

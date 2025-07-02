@@ -1,7 +1,7 @@
-import type { FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import styles from './Navbar.module.scss';
 import classNames from 'classnames';
-import { Calculator, LogIn, MessageSquare } from 'lucide-react';
+import { Calculator, LogIn, MessageSquare, User } from 'lucide-react';
 import { Typography } from 'shared/ui';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuthStore } from 'widgets/login/store/useAuthStore';
@@ -10,6 +10,18 @@ export const Navbar: FC = () => {
     const { isAuth, username, logout } = useAuthStore();
     const navigate = useNavigate();
     const location = useLocation();
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 780);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 756);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        // Clean up on unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const handleClick = (path: string) => {
         navigate(`/${path}`);
@@ -53,13 +65,14 @@ export const Navbar: FC = () => {
                                     styles.active,
                             )}
                         >
+                            {isMobile && <User width={17} />}
                             <Typography variant="base">
                                 Привет, {username}
                             </Typography>
                         </div>
                     </li>
                 )}
-                {isAuth ? (
+                {isAuth && !isMobile && (
                     <li>
                         <div
                             onClick={logout}
@@ -67,21 +80,6 @@ export const Navbar: FC = () => {
                         >
                             <LogIn width={17} />
                             <Typography variant="base">Выйти</Typography>
-                        </div>
-                    </li>
-                ) : (
-                    <li>
-                        <div
-                            onClick={() => handleClick('login')}
-                            className={classNames(
-                                styles.item,
-                                styles.button,
-                                location.pathname.includes('/login') &&
-                                    styles.active,
-                            )}
-                        >
-                            <LogIn width={17} />
-                            <Typography variant="base">Войти</Typography>
                         </div>
                     </li>
                 )}

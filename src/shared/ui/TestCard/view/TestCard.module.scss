@@ -1,17 +1,41 @@
 .wrapper {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: 48px;
+    margin-bottom: 48px;
+
+    @include Tablet {
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    @include Mobile {
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
 }
 
 .header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 48px;
+
+    @include Mobile {
+        margin-bottom: 32px;
+    }
 }
 
 .list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 28px;
+
+    @include Tablet {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    @include Mobile {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
 }
 
 .item {
@@ -36,6 +60,18 @@
     position: relative;
     overflow: hidden;
 
+    @include Tablet {
+        padding: 20px;
+        border-radius: 16px;
+        min-height: 220px;
+    }
+
+    @include Mobile {
+        padding: 16px;
+        border-radius: 12px;
+        min-height: 200px;
+    }
+
     &:hover {
         transform: translateY(-6px) scale(1.02);
         box-shadow:
@@ -59,18 +95,47 @@
     display: flex;
     align-items: flex-start;
     margin-bottom: 12px;
+
+    @include Tablet {
+        margin-bottom: 10px;
+    }
+
+    @include Mobile {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 8px;
+    }
 }
 
 .headerLeft {
     display: flex;
     align-items: center;
     gap: 8px;
+
+    @include Tablet {
+        gap: 6px;
+    }
+
+    @include Mobile {
+        gap: 4px;
+        flex-wrap: wrap;
+    }
 }
 
 .headerRight {
     display: flex;
     align-items: center;
     gap: 8px;
+
+    @include Tablet {
+        gap: 6px;
+    }
+
+    @include Mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
 }
 
 .statusBadge {
@@ -83,6 +148,19 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+
+    @include Tablet {
+        font-size: 11px;
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+
+    @include Mobile {
+        font-size: 10px;
+        padding: 4px 8px;
+        border-radius: 8px;
+        gap: 4px;
+    }
 }
 
 .progressPercent {
@@ -94,11 +172,33 @@
     border-radius: 12px;
     min-width: 60px;
     text-align: center;
+
+    @include Tablet {
+        font-size: 18px;
+        padding: 6px 10px;
+        border-radius: 10px;
+        min-width: 50px;
+    }
+
+    @include Mobile {
+        font-size: 16px;
+        padding: 4px 8px;
+        border-radius: 8px;
+        min-width: 45px;
+    }
 }
 
 .cardContent {
     flex: 1;
     margin-bottom: 20px;
+
+    @include Tablet {
+        margin-bottom: 16px;
+    }
+
+    @include Mobile {
+        margin-bottom: 12px;
+    }
 }
 
 .testTitle {
@@ -111,10 +211,28 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+
+    @include Tablet {
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+
+    @include Mobile {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
 }
 
 .progressSection {
     margin-top: 16px;
+
+    @include Tablet {
+        margin-bottom: 12px;
+    }
+
+    @include Mobile {
+        margin-bottom: 8px;
+    }
 }
 
 .progressBar {
@@ -125,6 +243,16 @@
     overflow: hidden;
     position: relative;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+
+    @include Tablet {
+        height: 10px;
+        border-radius: 10px;
+    }
+
+    @include Mobile {
+        height: 8px;
+        border-radius: 8px;
+    }
 }
 
 .progressFill {
@@ -133,6 +261,14 @@
     background: $gradient;
     transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+
+    @include Tablet {
+        border-radius: 10px;
+    }
+
+    @include Mobile {
+        border-radius: 8px;
+    }
 
     &::after {
         content: '';
@@ -155,6 +291,7 @@
     0% {
         transform: translateX(-100%);
     }
+
     100% {
         transform: translateX(100%);
     }
@@ -165,6 +302,16 @@
     font-size: 13px;
     margin-top: 8px;
     font-weight: 500;
+
+    @include Tablet {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+
+    @include Mobile {
+        font-size: 11px;
+        margin-top: 4px;
+    }
 }
 
 .cardFooter {
@@ -173,12 +320,31 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include Tablet {
+        padding-top: 14px;
+    }
+
+    @include Mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 12px;
+        gap: 8px;
+    }
 }
 
 .infoRow {
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    @include Tablet {
+        gap: 6px;
+    }
+
+    @include Mobile {
+        gap: 4px;
+    }
 }
 
 .infoItem {
@@ -188,6 +354,17 @@
     font-size: 13px;
     color: $muted;
     font-weight: 500;
+
+    @include Tablet {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    @include Mobile {
+        font-size: 11px;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
 
     .icon {
         color: $accent-color;
@@ -212,6 +389,25 @@
     svg {
         transition: transform 0.3s ease;
     }
+
+    @include Tablet {
+        font-size: 13px;
+        padding: 8px 14px;
+        border-radius: 10px;
+        gap: 6px;
+    }
+
+    @include Mobile {
+        font-size: 12px;
+        padding: 6px 12px;
+        border-radius: 8px;
+        gap: 4px;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
 }
 
 .deleteButton {
@@ -227,6 +423,24 @@
     transition:
         background-color 0.2s,
         color 0.2s;
+
+    @include Tablet {
+        padding: 3px;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    @include Mobile {
+        padding: 2px;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
 
     &:hover {
         background-color: rgba($error, 0.08);
@@ -266,6 +480,17 @@
     min-height: 260px;
     position: relative;
     overflow: hidden;
+
+    @include Tablet {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    @include Mobile {
+        padding: 16px;
+        border-radius: 16px;
+        min-height: auto;
+    }
 
     &::before {
         content: '';
@@ -332,13 +557,15 @@
     transition: all 0.3s ease;
     max-width: fit-content;
 
+    @include Mobile {
+        font-size: 9px;
+        padding: 4px 8px;
+    }
+
     &::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background: linear-gradient(
             135deg,
             rgba($accent-color-hover, 0.05),
@@ -371,6 +598,11 @@
     position: relative;
     z-index: 1;
 
+    @include Mobile {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
     .icon {
         display: flex;
         align-items: center;
@@ -382,9 +614,20 @@
         transition: all 0.3s ease;
         box-shadow: 0 4px 12px rgba($accent-color, 0.2);
 
+        @include Mobile {
+            width: 44px;
+            height: 44px;
+        }
+
         .iconCalculator {
             width: 28px;
             height: 28px;
+
+            @include Mobile {
+                width: 22px;
+                height: 22px;
+            }
+
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
     }
@@ -395,6 +638,10 @@
         color: $black;
         transition: color 0.3s ease;
         line-height: 1.3;
+
+        @include Mobile {
+            font-size: 17px;
+        }
     }
 }
 
@@ -407,12 +654,33 @@
     position: relative;
     z-index: 1;
 
+    @include Tablet {
+        font-size: 13px;
+        gap: 10px;
+    }
+
+    @include Mobile {
+        font-size: 12px;
+        gap: 8px;
+    }
+
     .infoItem {
         display: flex;
         align-items: center;
         gap: 10px;
         padding: 6px 0;
         font-weight: 500;
+
+        @include Tablet {
+            gap: 8px;
+            padding: 5px 0;
+        }
+
+        @include Mobile {
+            gap: 6px;
+            padding: 4px 0;
+            flex-wrap: wrap;
+        }
 
         svg {
             color: $accent-color;
@@ -429,6 +697,7 @@
                 opacity: 1;
                 transform: scale(1.1);
             }
+
             span {
                 color: $black;
             }
@@ -443,9 +712,22 @@
     position: relative;
     z-index: 1;
 
+    @include Tablet {
+        padding-top: 20px;
+    }
+
+    @include Mobile {
+        padding-top: 16px;
+    }
+
     button {
         width: 100%;
         transition: all 0.3s ease;
         box-shadow: 0 4px 12px rgba($accent-color, 0.2);
+
+        @include Mobile {
+            font-size: 14px;
+            padding: 10px;
+        }
     }
 }

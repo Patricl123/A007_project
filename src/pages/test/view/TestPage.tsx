@@ -9,6 +9,7 @@ import {
 import { InProgressTests } from 'widgets/inProgressTests';
 import { useInProgressTestsQuery } from 'widgets/inProgressTests/api/useInProgressTestsQuery';
 import { Loader } from 'shared/ui';
+import styles from './TestPage.module.scss';
 
 export const TestPage: FC = () => {
     const { isLoading: testsLoading } = useAllTestQuery();
@@ -24,10 +25,10 @@ export const TestPage: FC = () => {
     }
 
     return (
-        <>
+        <div className={styles.testPage}>
             <InProgressTests />
             <TestAll />
             <TestGenerator />
-        </>
+        </div>
     );
 };

@@ -1,5 +1,5 @@
 .wrapper {
-    width: 850px;
+    max-width: 850px;
     margin: 30px auto;
     border: 1px solid $border;
     padding: 30px 40px;
@@ -10,6 +10,16 @@
     background: linear-gradient(145deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
     box-shadow: $box-shadow;
     transition: all 0.4s;
+
+    @include Mobile {
+        margin-top: 50px;
+        padding: 20px 20px;
+        width: 100%;
+    }
+
+    @include Tablet {
+        width: 80%;
+    }
 
     &::before {
         content: '';
@@ -42,6 +52,7 @@
         margin-bottom: 8px;
 
         .icon {
+            flex-shrink: 0;
             width: 45px;
             height: 45px;
             background: $violet;
@@ -53,7 +64,7 @@
     }
 
     .textBlock {
-        width: 770px;
+        max-width: 770px;
         margin: 0 auto;
         border: 1px solid $border-violet;
         padding: 20px;

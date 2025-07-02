@@ -3,7 +3,7 @@
     top: 0;
     width: 100%;
     position: fixed;
-    z-index: 1000;
+    z-index: 1001;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,11 +12,19 @@
     background-color: $white;
     border: 1px solid $border;
 
+    @include Mobile {
+        flex-direction: column;
+        height: 120px;
+        align-items: center;
+        padding: 10px 40px;
+    }
+
     .logoWrapper {
         height: 38px;
 
         img {
             height: 100%;
+            object-fit: contain;
         }
 
         &:hover {
@@ -24,38 +32,10 @@
         }
     }
 
-    .routes {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-
-        .item {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            height: 35px;
-            padding-left: 10px;
-            padding-right: 10px;
-            border-radius: 7px;
-            transition: 0.2s ease-in;
-
-            &:hover {
-                background-color: $white-hover;
-            }
-
-            &.active {
-                background: $gradient;
-                color: $white !important;
-                p {
-                    color: $white;
-                }
-            }
-        }
-
-        .button {
-            border: 1px solid $border;
-        }
+    hr {
+        border: none;
+        border-top: 1px solid $border;
+        width: 100%;
+        margin: 5px 0;
     }
 }
