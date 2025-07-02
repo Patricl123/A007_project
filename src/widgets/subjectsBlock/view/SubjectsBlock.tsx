@@ -11,10 +11,10 @@ import {
     BookOpenCheck,
 } from 'lucide-react';
 import { useSubjectQuery } from '../api/useSubjectStore';
+import { Link } from 'react-router-dom';
 
 export const SubjectsBlock = () => {
     const { data: subjects, isLoading } = useSubjectQuery();
-
     const getSubjectIcon = (title: string) => {
         const normalizedTitle = title.toLowerCase().trim();
 
@@ -69,9 +69,11 @@ export const SubjectsBlock = () => {
                                 </Typography>
                             </div>
                             <Button className={styles.cardButton}>
-                                <Typography variant="small" color="white">
-                                    Начать обучение
-                                </Typography>
+                                <Link to={`/subsections/${subject._id}`}>
+                                    <Typography variant="small" color="white">
+                                        Выбрать предмет
+                                    </Typography>
+                                </Link>
                             </Button>
                         </div>
                     ))}

@@ -1,0 +1,65 @@
+import type { FC } from 'react';
+import type { ISubsection } from '../types/ISubsection';
+import { Button, Container, Loader, Typography } from 'shared/ui';
+import { useSubjectSubsectionsQuery } from '../api/useSubsectionQuery';
+import { Link } from 'react-router-dom';
+import styles from './Subsection.module.scss';
+import { ArrowRight, Brain } from 'lucide-react';
+
+interface Props {
+    subjectId: string | null;
+    onSubsectionClick?: (subsection: ISubsection) => void;
+}
+
+export const SubjectSubsectionsBlock: FC<Props> = ({
+    subjectId,
+    onSubsectionClick,
+}) => {
+    const { data, isLoading } = useSubjectSubsectionsQuery(subjectId);
+
+    if (!subjectId) return null;
+    if (isLoading) return <Loader />;
+    if (!data || data.length === 0) {
+        return (
+            <Typography variant="small" color="secondary">
+                Нет подразделов для этого предмета
+            </Typography>
+        );
+    }
+    const { name, subjection } = data;
+
+    return (
+        <Container>
+            <div className={styles.subsection}>
+                <div className={styles.textContent}>
+                    <Typography variant="h2" className={styles.h2}>
+                        {name}
+                    </Typography>
+                </div>
+                <div className={styles.subsectionList}>
+                    {subjection.map((s: any) => (
+                        <div
+                            key={s._id}
+                            onClick={() => onSubsectionClick?.(s)}
+                            className={styles.subsectionCard}
+                        >
+                            <div className={styles.title}>
+                                <Brain color="#9233ea" />
+                                <Typography variant="h3">{s.name}</Typography>
+                            </div>
+
+                            <Button size="default" className={styles.btn}>
+                                <Link to={`/topics/${s._id}`}>
+                                    <Typography variant="small" color="white">
+                                        Изучить с ИИ
+                                    </Typography>
+                                </Link>
+                                <ArrowRight size={18} />
+                            </Button>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </Container>
+    );
+};

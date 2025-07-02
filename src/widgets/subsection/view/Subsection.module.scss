@@ -1,0 +1,45 @@
+.subsection {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.subsectionList {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.h2 {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.subsectionCard {
+    width: 370px;
+    height: 170px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: left;
+    padding: 20px;
+    transition: 0.3s ease;
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.1),
+            0 8px 16px rgba(38, 99, 235, 0.15);
+        border-color: rgba(38, 99, 235, 0.3);
+    }
+}
+.title {
+    display: flex;
+    gap: 15px;
+}
+.btn {
+    width: 100%;
+    display: flex;
+}
