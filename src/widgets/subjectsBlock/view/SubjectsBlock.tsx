@@ -11,10 +11,11 @@ import {
     BookOpenCheck,
 } from 'lucide-react';
 import { useSubjectQuery } from '../api/useSubjectStore';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const SubjectsBlock = () => {
     const { data: subjects, isLoading } = useSubjectQuery();
+    const navigate = useNavigate();
     const getSubjectIcon = (title: string) => {
         const normalizedTitle = title.toLowerCase().trim();
 
@@ -68,12 +69,15 @@ export const SubjectsBlock = () => {
                                     ИИ
                                 </Typography>
                             </div>
-                            <Button className={styles.cardButton}>
-                                <Link to={`/subsections/${subject._id}`}>
-                                    <Typography variant="small" color="white">
-                                        Выбрать предмет
-                                    </Typography>
-                                </Link>
+                            <Button
+                                className={styles.cardButton}
+                                onClick={() =>
+                                    navigate(`/subsections/${subject._id}`)
+                                }
+                            >
+                                <Typography variant="small" color="white">
+                                    Выбрать предмет
+                                </Typography>
                             </Button>
                         </div>
                     ))}

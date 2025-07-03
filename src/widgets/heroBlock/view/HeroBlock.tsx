@@ -62,6 +62,7 @@ export const HeroBlock: FC = () => {
 
                 <div className={styles.buttonGroup}>
                     <Button
+                        className={styles.askButton}
                         variant="default"
                         size="lg"
                         onClick={() => navigate('/subjects')}

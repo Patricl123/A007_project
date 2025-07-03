@@ -2,9 +2,9 @@ import type { FC } from 'react';
 import type { ISubsection } from '../types/ISubsection';
 import { Button, Container, Loader, Typography } from 'shared/ui';
 import { useSubjectSubsectionsQuery } from '../api/useSubsectionQuery';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './Subsection.module.scss';
-import { ArrowRight, Brain } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Brain } from 'lucide-react';
 
 interface Props {
     subjectId: string | null;
@@ -16,7 +16,7 @@ export const SubjectSubsectionsBlock: FC<Props> = ({
     onSubsectionClick,
 }) => {
     const { data, isLoading } = useSubjectSubsectionsQuery(subjectId);
-
+    const navigate = useNavigate();
     if (!subjectId) return null;
     if (isLoading) return <Loader />;
     if (!data || data.length === 0) {
@@ -27,13 +27,18 @@ export const SubjectSubsectionsBlock: FC<Props> = ({
         );
     }
     const { name, subjection } = data;
-
     return (
         <Container>
             <div className={styles.subsection}>
                 <div className={styles.textContent}>
                     <Typography variant="h2" className={styles.h2}>
                         {name}
+                    </Typography>
+                </div>
+                <div className={styles.backLink} onClick={() => navigate(-1)}>
+                    <ArrowLeft className={styles.linkArrow} />
+                    <Typography variant="large" className={styles.link}>
+                        Назад к предметам
                     </Typography>
                 </div>
                 <div className={styles.subsectionList}>
@@ -48,12 +53,14 @@ export const SubjectSubsectionsBlock: FC<Props> = ({
                                 <Typography variant="h3">{s.name}</Typography>
                             </div>
 
-                            <Button size="default" className={styles.btn}>
-                                <Link to={`/topics/${s._id}`}>
-                                    <Typography variant="small" color="white">
-                                        Изучить с ИИ
-                                    </Typography>
-                                </Link>
+                            <Button
+                                size="default"
+                                className={styles.btn}
+                                onClick={() => navigate(`/topics/${s._id}`)}
+                            >
+                                <Typography variant="small" color="white">
+                                    Изучить с ИИ
+                                </Typography>
                                 <ArrowRight size={18} />
                             </Button>
                         </div>

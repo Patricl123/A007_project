@@ -1,26 +1,37 @@
 import { useState, type FC } from 'react';
-import { Button, Container, Loader, Typography } from 'shared/ui';
-import { useTopicsQuery } from '../api/useTopicsQuery';
+import { useNavigate } from 'react-router-dom';
+import { Container, Typography, Button, Loader } from 'shared/ui';
 import styles from './Topics.module.scss';
-import { Lightbulb, Send } from 'lucide-react';
+import { useTopicsQuery } from '../api/useTopicsQuery';
+import { ArrowLeft, Lightbulb, Send } from 'lucide-react';
+import type { ITopics } from '../types/Topics';
 
 interface Props {
     topicId: string | null;
+    subjectId: string | null;
 }
 
 export const Topics: FC<Props> = ({ topicId }) => {
     const { data, isLoading } = useTopicsQuery(topicId);
     const [openedId, setOpenedId] = useState<string | null>(null);
-    if (!data) return null;
+    const navigate = useNavigate();
+
     if (isLoading) return <Loader />;
+    if (!data) return null;
     if (!data || data.length === 0)
         return <Typography variant="large">No data</Typography>;
 
     return (
         <section className={styles.topicSection}>
             <Container>
+                <div className={styles.backLink} onClick={() => navigate(-1)}>
+                    <ArrowLeft className={styles.linkArrow} />
+                    <Typography variant="large" className={styles.link}>
+                        Назад к подразделам
+                    </Typography>
+                </div>
                 <div className={styles.topicList}>
-                    {data.map((t) => (
+                    {data.map((t: ITopics) => (
                         <div key={t._id} className={styles.topicCard}>
                             <div className={styles.text}>
                                 <Lightbulb size={18} color=" #fbbf24" />
@@ -31,7 +42,9 @@ export const Topics: FC<Props> = ({ topicId }) => {
                                 size="default"
                                 onClick={() =>
                                     setOpenedId(
-                                        openedId === t._id ? null : t._id,
+                                        openedId === String(t._id)
+                                            ? null
+                                            : String(t._id),
                                     )
                                 }
                                 className={styles.btn}

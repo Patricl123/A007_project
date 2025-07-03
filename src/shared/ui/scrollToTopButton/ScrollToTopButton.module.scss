@@ -18,6 +18,19 @@
         opacity 0.2s;
     opacity: 0.95;
     cursor: pointer;
+    @include Tablet {
+        width: 48px;
+        height: 48px;
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
+
+    @include Mobile {
+        width: 40px;
+        height: 40px;
+        right: 1rem;
+        bottom: 1rem;
+    }
 }
 .scrollToTop:hover {
     opacity: 1;

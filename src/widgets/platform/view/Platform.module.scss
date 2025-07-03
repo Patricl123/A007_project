@@ -2,6 +2,9 @@
     padding: 80px;
     background-color: $white;
     text-align: center;
+    @include Mobile {
+        padding: 32px;
+    }
 }
 
 .titleMain {
@@ -23,6 +26,9 @@
     &:hover {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         transform: translateY(-4px);
+    }
+    @include Tablet {
+        width: 100%;
     }
 }
 
@@ -59,11 +65,17 @@
     display: flex;
     justify-content: center;
     gap: 38px;
+    @include Mobile {
+        flex-direction: column;
+    }
+    @include Tablet {
+        flex-direction: column;
+    }
 }
 
 .subtitle {
     margin-top: 8px;
     color: #6b7280;
-    width: 768px;
+    width: 75%;
     margin: 0 auto;
 }

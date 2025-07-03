@@ -1,18 +1,26 @@
 .heroSection {
+    margin-top: 40px;
     position: relative;
     text-align: center;
-    padding: 5rem;
+    padding: 5rem 5rem;
     background: linear-gradient(
         to bottom right,
         #eff6ff,
         /* from-blue-50 */ #eef2ff,
         /* via-indigo-50 */ #f5f3ff /* to-purple-50 */
     );
+    @include Mobile {
+        padding: 2rem;
+    }
     .description {
         font-size: 1.5rem;
         line-height: 2rem;
         margin: 1.5rem auto 2rem;
-        width: 900px;
+        width: 80%;
+        @include Mobile {
+            width: 90%;
+            text-align: center;
+        }
     }
 }
 .iconWrapper {
@@ -70,13 +78,18 @@
 
 .buttonGroup {
     display: flex;
-    flex-direction: column;
+
     gap: 1rem;
     justify-content: center;
     align-items: center;
-
-    @media (min-width: 640px) {
-        flex-direction: row;
+    @include Tablet {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+.askButton {
+    @include Tablet {
+        width: 100%;
     }
 }
 
@@ -96,10 +109,22 @@
     &Title {
         margin: 0 0 9px;
     }
+    @include Tablet {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    @include Mobile {
+        flex-direction: column;
+        gap: 5px;
+    }
 }
 .listItem {
     width: 250px;
     height: 250px;
+    @include Tablet {
+        width: 100%;
+    }
 }
 .listIconWrapper {
     width: 4rem;

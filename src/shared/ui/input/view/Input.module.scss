@@ -9,18 +9,46 @@
 
     &.medium {
         width: 200px;
+
+        @include Tablet {
+            width: 160px;
+        }
+
+        @include Mobile {
+            width: 100%;
+        }
     }
 
     &.short {
         width: 120px;
+
+        @include Tablet {
+            width: 100px;
+        }
+
+        @include Mobile {
+            width: 100%;
+        }
     }
 
     &.long {
         width: 320px;
+
+        @include Tablet {
+            width: 260px;
+        }
+
+        @include Mobile {
+            width: 100%;
+        }
     }
 
     &.isPaddingLeft {
         padding-left: 46px;
+
+        @include Mobile {
+            padding-left: 36px;
+        }
     }
 
     &.fullWidth {
@@ -45,6 +73,7 @@
         cursor: not-allowed;
     }
 }
+
 .icon {
     position: absolute;
     left: 12px;
@@ -52,11 +81,26 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
+
+    @include Mobile {
+        left: 8px;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
 }
+
 .wrapper {
     display: flex;
     align-items: center;
     position: relative;
+
+    @include Mobile {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
     &.fullWidth {
         width: 100%;
