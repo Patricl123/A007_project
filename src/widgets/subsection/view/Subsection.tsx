@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { ISubsection } from '../types/ISubsection';
+import type { ISub, ISubsection } from '../types/ISubsection';
 import { Button, Container, Loader, Typography } from 'shared/ui';
 import { useSubjectSubsectionsQuery } from '../api/useSubsectionQuery';
 import { useNavigate } from 'react-router-dom';
@@ -45,7 +45,7 @@ export const SubjectSubsectionsBlock: FC<Props> = ({
                 </div>
 
                 <div className={styles.subsectionList}>
-                    {data.subjection.map((s) => (
+                    {data.subjection.map((s: ISub) => (
                         <div
                             key={s._id}
                             onClick={() => onSubsectionClick?.(s)}

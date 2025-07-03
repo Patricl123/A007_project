@@ -1,4 +1,4 @@
-type ISub = {
+export type ISub = {
     _id: string;
     name: string;
 };
