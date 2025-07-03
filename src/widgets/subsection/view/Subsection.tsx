@@ -8,7 +8,7 @@ import { ArrowLeft, ArrowRight, Brain } from 'lucide-react';
 
 interface Props {
     subjectId: string | null;
-    onSubsectionClick?: (subsection: ISubsection) => void;
+    onSubsectionClick?: (subsection: ISubsection['subjection'][0]) => void;
 }
 
 export const SubjectSubsectionsBlock: FC<Props> = ({
@@ -31,17 +31,19 @@ export const SubjectSubsectionsBlock: FC<Props> = ({
     return (
         <Container>
             <div className={styles.subsection}>
-                <div className={styles.textContent}>
-                    <Typography variant="h2" className={styles.h2}>
-                        {data.name}
-                    </Typography>
-                </div>
                 <div className={styles.backLink} onClick={() => navigate(-1)}>
                     <ArrowLeft className={styles.linkArrow} />
                     <Typography variant="large" className={styles.link}>
                         Назад к предметам
                     </Typography>
                 </div>
+
+                <div className={styles.textContent}>
+                    <Typography variant="h2" className={styles.h2}>
+                        {data.name}
+                    </Typography>
+                </div>
+
                 <div className={styles.subsectionList}>
                     {data.subjection.map((s) => (
                         <div

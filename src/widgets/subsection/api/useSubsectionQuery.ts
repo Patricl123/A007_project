@@ -8,7 +8,7 @@ export const useSubjectSubsectionsQuery = (subjectId: string | null) => {
         enabled: !!subjectId,
         queryFn: async () => {
             if (!subjectId) return [];
-            const { data } = await $mainApi.get(
+            const { data } = await $mainApi.get<ISubsection[]>(
                 `/subsections?subject=${subjectId}`,
             );
             return data;
