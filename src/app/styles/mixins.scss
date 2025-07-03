@@ -1,5 +1,6 @@
 $breakpoint-tablet: 992px;
 $breakpoint-mobile: 756px;
+
 @mixin Tablet {
     @media (max-width: $breakpoint-tablet) {
         @content;

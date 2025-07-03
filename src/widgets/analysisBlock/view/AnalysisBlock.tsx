@@ -28,7 +28,9 @@ export const AnalysisBlock = () => {
             <div className={styles.textBlock}>
                 {data ? (
                     <Typography variant="base">
-                        <ReactMarkdown>{data.adviceText}</ReactMarkdown>
+                        <ReactMarkdown skipHtml>
+                            {data.adviceText}
+                        </ReactMarkdown>
                     </Typography>
                 ) : (
                     <Typography variant="base">

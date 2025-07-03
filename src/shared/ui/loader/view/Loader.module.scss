@@ -107,7 +107,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@include Tablet {
     .symbol {
         font-size: 32px;
     }

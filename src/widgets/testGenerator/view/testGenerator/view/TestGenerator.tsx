@@ -34,7 +34,7 @@ export const TestGenerator = () => {
         {
             id: '1',
             title: 'Выберите тему',
-            subtitle: 'Определите область математики для изучения',
+            subtitle: 'Определите тему для изучения',
             icon: <Target />,
             actionValue: selectedValues['1'],
         },

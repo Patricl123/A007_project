@@ -5,6 +5,9 @@
     align-items: center;
     text-align: center;
     gap: 20px;
+    @include Tablet {
+        margin: 30px 0;
+    }
 }
 
 .textPart {
@@ -14,12 +17,17 @@
 }
 
 .choosePart {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-content: center;
     gap: 20px;
     max-width: 845px;
     width: 100%;
+    @include Mobile {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
 }
 
 .customTopicFields {
@@ -170,23 +178,11 @@
         0 4px 16px rgba(0, 0, 0, 0.04);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: conic-gradient(
-            from 0deg,
-            transparent,
-            rgba($accent-color, 0.03),
-            transparent,
-            rgba($accent-color, 0.03),
-            transparent
-        );
-        animation: rotate 20s linear infinite;
-        z-index: 0;
+    @include Tablet {
+        padding: 32px 24px;
+    }
+    @include Mobile {
+        padding: 24px 16px;
     }
 
     &::after {
@@ -264,6 +260,11 @@
             0 8px 16px rgba($violet, 0.2),
             0 0 0 4px rgba($violet, 0.1);
 
+        @include Mobile {
+            width: 74px;
+            height: 74px;
+        }
+
         &::before {
             content: '';
             position: absolute;
@@ -302,6 +303,9 @@
         flex-direction: column;
         gap: 12px;
         max-width: 600px;
+        @include Tablet {
+            gap: 8px;
+        }
 
         h3 {
             font-size: 28px;
@@ -312,6 +316,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            @include Tablet {
+                font-size: 24px;
+            }
         }
 
         p {
@@ -319,6 +326,9 @@
             color: $muted;
             line-height: 1.6;
             font-weight: 500;
+            @include Tablet {
+                font-size: 15px;
+            }
         }
     }
 
@@ -340,6 +350,10 @@
             0 4px 8px rgba(0, 0, 0, 0.1);
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        @include Tablet {
+            padding: 14px 24px;
+            font-size: 15px;
+        }
 
         &::before {
             content: '';

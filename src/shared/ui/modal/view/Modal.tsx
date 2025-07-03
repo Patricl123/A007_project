@@ -16,7 +16,6 @@ export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
                 onClose();
             }
         };
-
         if (isOpen) {
             document.addEventListener('keydown', handleEscape);
             document.body.style.overflow = 'hidden';

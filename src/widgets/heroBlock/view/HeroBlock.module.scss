@@ -10,7 +10,12 @@
         /* via-indigo-50 */ #f5f3ff /* to-purple-50 */
     );
     @include Mobile {
+        margin-top: 100px;
         padding: 2rem;
+    }
+    @include Tablet {
+        margin-top: 60px;
+        padding: 3rem;
     }
     .description {
         font-size: 1.5rem;

@@ -2,8 +2,10 @@
     padding: 80px 0;
     @include Tablet {
         padding: 40px 0;
+        margin-top: 60px;
     }
     @include Mobile {
+        margin-top: 120px;
         padding: 20px 0;
     }
 }

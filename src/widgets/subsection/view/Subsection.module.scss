@@ -6,10 +6,12 @@
     @include Tablet {
         padding: 40px 0;
         gap: 18px;
+        margin-top: 60px;
     }
     @include Mobile {
         padding: 20px 0;
         gap: 10px;
+        margin-top: 100px;
     }
 }
 .subsectionList {
