@@ -2,7 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 0px;
+    margin: 70px 0px;
+    @include Tablet {
+        margin: 90px 0;
+    }
+    @include Mobile {
+        margin: 150px 0;
+    }
 }
 
 .textPart {
@@ -18,6 +24,15 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     width: fit-content;
+    @include Tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    @include Mobile {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+    }
 }
 
 .subjectCard {
@@ -38,6 +53,17 @@
     backdrop-filter: blur(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    overflow: hidden;
+    @include Tablet {
+        max-width: 100%;
+        padding: 18px 10px;
+        gap: 10px;
+    }
+    @include Mobile {
+        padding: 15px 4px;
+        border-radius: 10px;
+        gap: 8px;
+    }
     overflow: hidden;
 
     &:hover {
@@ -92,13 +118,22 @@
         gap: 8px;
         min-height: 80px;
         justify-content: center;
+        @include Mobile {
+            min-height: 40px;
+            font-size: 14px;
+        }
     }
 
     .cardButton {
         margin-top: auto;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 4px 12px rgba(38, 99, 235, 0.2);
-
+        @include Mobile {
+            font-size: 14px;
+            padding: 8px 0;
+            width: 80%;
+            margin: 0 auto;
+        }
         &:hover {
             box-shadow: 0 6px 16px rgba(38, 99, 235, 0.3);
         }

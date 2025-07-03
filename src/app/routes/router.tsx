@@ -10,6 +10,9 @@ import { AskAiPage } from 'pages/askAi';
 import { TestHistoryPage } from 'pages/testHistory';
 import { ProtectedRoute } from 'shared/lib/routing/ProtectedRoute';
 
+import { SubsectionsPage } from 'pages/subsections';
+import { TopicPage } from 'pages/topicPage/view/TopicPage';
+
 export const router = () =>
     createBrowserRouter([
         {
@@ -54,6 +57,14 @@ export const router = () =>
                 {
                     path: '/test-history/:historyId/:testId',
                     element: <TestHistoryPage />,
+                },
+                {
+                    path: '/subsections/:subjectId',
+                    element: <SubsectionsPage />,
+                },
+                {
+                    path: '/topics/:topicId',
+                    element: <TopicPage />,
                 },
             ],
         },
