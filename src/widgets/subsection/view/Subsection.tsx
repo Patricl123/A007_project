@@ -17,22 +17,23 @@ export const SubjectSubsectionsBlock: FC<Props> = ({
 }) => {
     const { data, isLoading } = useSubjectSubsectionsQuery(subjectId);
     const navigate = useNavigate();
+
     if (!subjectId) return null;
     if (isLoading) return <Loader />;
-    if (!data || data.length === 0) {
+    if (!data || !data.subjection || data.subjection.length === 0) {
         return (
             <Typography variant="small" color="secondary">
                 Нет подразделов для этого предмета
             </Typography>
         );
     }
-    const { name, subjection } = data;
+
     return (
         <Container>
             <div className={styles.subsection}>
                 <div className={styles.textContent}>
                     <Typography variant="h2" className={styles.h2}>
-                        {name}
+                        {data.name}
                     </Typography>
                 </div>
                 <div className={styles.backLink} onClick={() => navigate(-1)}>
@@ -42,7 +43,7 @@ export const SubjectSubsectionsBlock: FC<Props> = ({
                     </Typography>
                 </div>
                 <div className={styles.subsectionList}>
-                    {subjection.map((s: any) => (
+                    {data.subjection.map((s) => (
                         <div
                             key={s._id}
                             onClick={() => onSubsectionClick?.(s)}
