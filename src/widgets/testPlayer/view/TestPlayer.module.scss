@@ -43,6 +43,23 @@
             background: linear-gradient(90deg, #2663eb, #2257cb);
             border-radius: 2px;
         }
+        @include Tablet {
+            font-size: 22px;
+        }
+    }
+    @include Tablet {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-top: 60px;
+        margin-bottom: 24px;
+    }
+    @include Mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        padding-top: 32px;
+        margin-bottom: 16px;
     }
 }
 
@@ -83,6 +100,16 @@
         box-shadow:
             0 16px 40px rgba(38, 99, 235, 0.12),
             0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    @include Tablet {
+        padding: 20px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+    }
+    @include Mobile {
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 10px;
     }
 }
 
@@ -135,6 +162,16 @@
         background: linear-gradient(180deg, #2663eb, #2257cb);
         border-radius: 2px;
     }
+    @include Tablet {
+        font-size: 16px;
+        margin-bottom: 18px;
+        padding-left: 12px;
+    }
+    @include Mobile {
+        font-size: 13px;
+        margin-bottom: 10px;
+        padding-left: 10px;
+    }
 }
 
 .options {
@@ -166,6 +203,12 @@
         &:nth-child(5) {
             animation-delay: 0.5s;
         }
+    }
+    @include Tablet {
+        gap: 10px;
+    }
+    @include Mobile {
+        gap: 6px;
     }
 }
 
@@ -199,6 +242,16 @@
         border-radius: 16px;
         z-index: -1;
     }
+    @include Tablet {
+        margin-top: 16px;
+        padding: 12px;
+        border-radius: 10px;
+    }
+    @include Mobile {
+        margin-top: 8px;
+        padding: 6px;
+        border-radius: 6px;
+    }
 }
 
 .explanationTitle {
@@ -206,12 +259,26 @@
     font-weight: 600;
     margin-bottom: 12px;
     font-size: 18px;
+    @include Tablet {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+    @include Mobile {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
 }
 
 .explanationText {
     color: #475569;
     line-height: 1.6;
     font-size: 16px;
+    @include Tablet {
+        font-size: 13px;
+    }
+    @include Mobile {
+        font-size: 11px;
+    }
 }
 
 .questionProgress {
@@ -274,6 +341,16 @@
     &[data-progress='100']::before {
         width: 100%;
     }
+    @include Tablet {
+        font-size: 14px;
+        padding: 10px 16px;
+        margin-bottom: 12px;
+    }
+    @include Mobile {
+        font-size: 11px;
+        padding: 6px 8px;
+        margin-bottom: 6px;
+    }
 }
 
 .navigation {
@@ -282,6 +359,14 @@
     align-items: center;
     margin-bottom: 32px;
     gap: 24px;
+    @include Tablet {
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+    @include Mobile {
+        gap: 4px;
+        margin-bottom: 8px;
+    }
 }
 
 .progress {

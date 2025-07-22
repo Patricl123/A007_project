@@ -11,6 +11,18 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
+    @include Tablet {
+        min-width: 150px;
+        padding: 14px 12px;
+        border-radius: 16px;
+        gap: 3px;
+    }
+    @include Mobile {
+        min-width: 120px;
+        padding: 10px 6px;
+        border-radius: 12px;
+        gap: 2px;
+    }
 }
 
 .timerContainer::before {
@@ -44,6 +56,12 @@
     animation:
         pulse 2s infinite,
         shake 0.5s infinite;
+    @include Tablet {
+        border-radius: 16px;
+    }
+    @include Mobile {
+        border-radius: 12px;
+    }
 }
 
 .lowTimeContainer::before {
@@ -59,6 +77,12 @@
     font-size: 32px;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     animation: bounce 2s infinite;
+    @include Tablet {
+        font-size: 24px;
+    }
+    @include Mobile {
+        font-size: 18px;
+    }
 }
 
 .timer {
@@ -69,6 +93,12 @@
     letter-spacing: 0.1em;
     margin: 0 !important;
     font-family: 'Roboto Mono', 'Monaco', 'Consolas', monospace;
+    @include Tablet {
+        font-size: 36px !important;
+    }
+    @include Mobile {
+        font-size: 26px !important;
+    }
 }
 
 .lowTime {
@@ -83,6 +113,12 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    @include Tablet {
+        font-size: 12px;
+    }
+    @include Mobile {
+        font-size: 10px;
+    }
 }
 
 @keyframes pulse {
@@ -169,6 +205,16 @@
     transition: all 0.3s ease;
     min-width: 280px;
     max-width: 350px;
+    @include Tablet {
+        padding: 16px;
+        min-width: 200px;
+        max-width: 260px;
+    }
+    @include Mobile {
+        padding: 10px;
+        min-width: 120px;
+        max-width: 180px;
+    }
 }
 
 .resultCard:hover {
@@ -221,6 +267,12 @@
     font-weight: 700;
     color: #0f766e;
     line-height: 1;
+    @include Tablet {
+        font-size: 26px;
+    }
+    @include Mobile {
+        font-size: 18px;
+    }
 }
 
 .scoreDivider {
@@ -234,6 +286,12 @@
     font-weight: 600;
     color: #475569;
     line-height: 1;
+    @include Tablet {
+        font-size: 16px;
+    }
+    @include Mobile {
+        font-size: 12px;
+    }
 }
 
 .percentageContainer {
@@ -261,8 +319,10 @@
     font-weight: 600;
     color: #0f766e;
     font-size: 16px;
-    min-width: 45px;
     text-align: right;
+    @include Tablet {
+        font-size: 12px;
+    }
 }
 
 .resultMessage {

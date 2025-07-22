@@ -1,8 +1,19 @@
 import { Modal, Button, Typography } from 'shared/ui';
 import type { ITestResult } from 'entities/test/types/testResult';
-import styles from './TestResultsModal.module.scss';
 import type { IHistoryTestResult } from 'widgets/historyBlock/types/types';
+
+import styles from './TestResultsModal.module.scss';
 import type { TestResultsModalProps } from '../types/IResult';
+
+const ShimmerBox = ({ className }: { className?: string }) => (
+    <div className={`${styles.shimmer} ${className || ''}`} />
+);
+
+const ShimmerCircle = () => (
+    <div className={styles.shimmerCircle}>
+        <div className={styles.shimmerCircleInner} />
+    </div>
+);
 
 export const TestResultsModal = ({
     isOpen,
@@ -11,15 +22,18 @@ export const TestResultsModal = ({
     testTitle,
     onViewDetails,
     mode = 'test',
+    isLoading = false,
 }: TestResultsModalProps) => {
-    const score =
-        mode === 'history'
+    const score = results
+        ? mode === 'history'
             ? (results as IHistoryTestResult).correct
-            : (results as ITestResult).score;
-    const total =
-        mode === 'history'
+            : (results as ITestResult).score
+        : 0;
+    const total = results
+        ? mode === 'history'
             ? (results as IHistoryTestResult).total
-            : (results as ITestResult).total;
+            : (results as ITestResult).total
+        : 1;
 
     const percentage = Math.round((score / total) * 100);
     const isGoodResult = percentage >= 70;
@@ -45,35 +59,54 @@ export const TestResultsModal = ({
         <Modal isOpen={isOpen} onClose={onClose} title="Результаты теста">
             <div className={styles.content}>
                 <div className={styles.header}>
-                    <Typography variant="h3" className={styles.testTitle}>
-                        {testTitle}
-                    </Typography>
-                    <Typography variant="h4" className={styles.resultMessage}>
-                        {getResultMessage()}
-                    </Typography>
+                    {isLoading ? (
+                        <>
+                            <ShimmerBox className={styles.shimmerTitle} />
+                            <ShimmerBox className={styles.shimmerMessage} />
+                        </>
+                    ) : (
+                        <>
+                            <Typography
+                                variant="h3"
+                                className={styles.testTitle}
+                            >
+                                {testTitle}
+                            </Typography>
+                            <Typography
+                                variant="h4"
+                                className={styles.resultMessage}
+                            >
+                                {getResultMessage()}
+                            </Typography>
+                        </>
+                    )}
                 </div>
 
                 <div className={styles.scoreSection}>
-                    <div className={styles.scoreCircle}>
-                        <div
-                            className={styles.scoreProgress}
-                            style={
-                                {
-                                    '--progress': `${percentage * 3.6}`,
-                                    '--color': getResultColor(),
-                                } as React.CSSProperties
-                            }
-                        >
-                            <div className={styles.scoreText}>
-                                <span className={styles.scoreNumber}>
-                                    {score}
-                                </span>
-                                <span className={styles.scoreTotal}>
-                                    /{total}
-                                </span>
+                    {isLoading ? (
+                        <ShimmerCircle />
+                    ) : (
+                        <div className={styles.scoreCircle}>
+                            <div
+                                className={styles.scoreProgress}
+                                style={
+                                    {
+                                        '--progress': `${percentage * 3.6}`,
+                                        '--color': getResultColor(),
+                                    } as React.CSSProperties
+                                }
+                            >
+                                <div className={styles.scoreText}>
+                                    <span className={styles.scoreNumber}>
+                                        {score}
+                                    </span>
+                                    <span className={styles.scoreTotal}>
+                                        /{total}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
                 </div>
 
                 <div className={styles.stats}>
@@ -81,17 +114,31 @@ export const TestResultsModal = ({
                         <Typography variant="base" className={styles.statLabel}>
                             Правильных ответов
                         </Typography>
-                        <Typography variant="h4" className={styles.statValue}>
-                            {score}
-                        </Typography>
+                        {isLoading ? (
+                            <ShimmerBox className={styles.shimmerStatValue} />
+                        ) : (
+                            <Typography
+                                variant="h4"
+                                className={styles.statValue}
+                            >
+                                {score}
+                            </Typography>
+                        )}
                     </div>
                     <div className={styles.statItem}>
                         <Typography variant="base" className={styles.statLabel}>
                             Всего вопросов
                         </Typography>
-                        <Typography variant="h4" className={styles.statValue}>
-                            {total}
-                        </Typography>
+                        {isLoading ? (
+                            <ShimmerBox className={styles.shimmerStatValue} />
+                        ) : (
+                            <Typography
+                                variant="h4"
+                                className={styles.statValue}
+                            >
+                                {total}
+                            </Typography>
+                        )}
                     </div>
                 </div>
 
@@ -100,6 +147,7 @@ export const TestResultsModal = ({
                         onClick={onViewDetails}
                         variant="default"
                         className={styles.viewDetailsBtn}
+                        disabled={isLoading}
                     >
                         Просмотреть детали
                     </Button>

@@ -8,4 +8,5 @@ export interface TestResultsModalProps {
     testTitle: string;
     onViewDetails: () => void;
     mode?: 'test' | 'history';
+    isLoading?: boolean;
 }

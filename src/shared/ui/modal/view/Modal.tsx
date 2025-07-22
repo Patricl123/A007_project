@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Modal.module.scss';
+import { Typography } from 'shared/ui/typography/view/Typography';
 
 interface ModalProps {
     isOpen: boolean;
@@ -34,7 +35,7 @@ export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
             <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
                 {title && (
                     <div className={styles.header}>
-                        <h2 className={styles.title}>{title}</h2>
+                        <Typography variant="h3">{title}</Typography>
                         <button
                             className={styles.closeButton}
                             onClick={onClose}
