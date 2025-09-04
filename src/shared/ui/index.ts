@@ -6,6 +6,6 @@ export { Label } from './label/view/Label';
 export { Container } from './container/view/Container';
 export { Loader } from './loader/view/Loader';
 export { Card } from './card/view/Card';
-export { TestCard } from './testCard/view/TestCard';
+// export { TestCard } from './testCard/view/TestCard';
 export { Modal } from './modal';
 export { ScrollToTopButton } from './scrollToTopButton/ScrollToTopButton';
