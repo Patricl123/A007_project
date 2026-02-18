@@ -1,0 +1,122 @@
+.wrapper {
+    max-width: 850px;
+    margin: 30px auto;
+    border: 1px solid $border;
+    padding: 30px 40px;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+    box-shadow: $box-shadow;
+    transition: all 0.4s;
+
+    @include Mobile {
+        margin-top: 50px;
+        padding: 20px 20px;
+        width: 100%;
+    }
+
+    @include Tablet {
+        width: 80%;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(
+            45deg,
+            rgba(147, 51, 234, 0.1),
+            rgba(168, 85, 247, 0.05)
+        );
+        border-radius: 50%;
+        transition: all 0.6s ease;
+        opacity: 0;
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: $box-shadow-hover;
+        border-color: $border-hover;
+    }
+
+    .title {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+
+        .icon {
+            flex-shrink: 0;
+            width: 45px;
+            height: 45px;
+            border-radius: $border-radius;
+            background: $accent-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .history {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 770px;
+        margin: 0 auto;
+
+        @include Tablet {
+            width: 98%;
+        }
+
+        .item {
+            padding: 25px 20px;
+            border: 1px solid $border;
+            border-radius: $border-radius;
+            background-color: $white-grey;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            transition: 0.4s ease;
+            cursor: pointer;
+
+            @include Mobile {
+                padding: 15px 10px;
+            }
+
+            &:hover {
+                border: 1px solid $accent-color;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(147, 51, 234, 0.15);
+                background-color: rgba(147, 51, 234, 0.02);
+            }
+
+            &:active {
+                transform: translateY(0);
+                box-shadow: 0 2px 8px rgba(147, 51, 234, 0.1);
+            }
+
+            .left {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+
+                .percentage {
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+}

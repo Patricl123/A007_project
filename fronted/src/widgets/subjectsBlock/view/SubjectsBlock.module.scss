@@ -1,0 +1,141 @@
+.subjectsBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 70px 0px;
+    @include Tablet {
+        margin: 90px 0;
+    }
+    @include Mobile {
+        margin: 150px 0;
+    }
+}
+
+.textPart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+}
+
+.subjectsList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: fit-content;
+    @include Tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    @include Mobile {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+}
+
+.subjectCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    max-width: 345px;
+    padding: 28px 24px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    @include Tablet {
+        max-width: 100%;
+        padding: 18px 10px;
+        gap: 10px;
+    }
+    @include Mobile {
+        padding: 15px 4px;
+        border-radius: 10px;
+        gap: 8px;
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.1),
+            0 8px 16px rgba(38, 99, 235, 0.15);
+        border-color: rgba(38, 99, 235, 0.3);
+
+        &::before {
+            opacity: 1;
+        }
+
+        .icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 24px rgba(38, 99, 235, 0.4);
+            background: $gradient-hover;
+        }
+
+        .cardButton {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(38, 99, 235, 0.3);
+        }
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        background: $gradient;
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow:
+            0 8px 16px rgba(38, 99, 235, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        position: relative;
+
+        svg {
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            z-index: 1;
+            position: relative;
+        }
+    }
+
+    .cardText {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-height: 80px;
+        justify-content: center;
+        @include Mobile {
+            min-height: 40px;
+            font-size: 14px;
+        }
+    }
+
+    .cardButton {
+        margin-top: auto;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 12px rgba(38, 99, 235, 0.2);
+        @include Mobile {
+            font-size: 14px;
+            padding: 8px 0;
+            width: 80%;
+            margin: 0 auto;
+        }
+        &:hover {
+            box-shadow: 0 6px 16px rgba(38, 99, 235, 0.3);
+        }
+    }
+}

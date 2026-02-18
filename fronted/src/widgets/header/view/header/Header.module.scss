@@ -1,0 +1,41 @@
+.wrapper {
+    height: 65px;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1001;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: $white;
+    border: 1px solid $border;
+
+    @include Mobile {
+        flex-direction: column;
+        height: 120px;
+        align-items: center;
+        padding: 10px 40px;
+    }
+
+    .logoWrapper {
+        height: 38px;
+
+        img {
+            height: 100%;
+            object-fit: contain;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid $border;
+        width: 100%;
+        margin: 5px 0;
+    }
+}

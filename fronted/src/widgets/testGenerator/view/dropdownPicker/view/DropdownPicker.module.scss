@@ -1,0 +1,97 @@
+.pickerContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, #ffffff, #fafbfc);
+    padding: 28px;
+    gap: 16px;
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @include Mobile {
+        padding: 20px;
+        max-width: 330px;
+    }
+
+    &.containerOpen {
+        overflow: visible;
+        z-index: 1000;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(38, 99, 235, 0.05) 0%,
+            rgba(34, 87, 203, 0.03) 50%,
+            rgba(236, 254, 255, 0.05) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+        border-radius: 20px;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 12px 25px rgba(38, 99, 235, 0.08),
+            0 5px 10px rgba(0, 0, 0, 0.1);
+        border-color: rgba(38, 99, 235, 0.2);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.textArea {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 4px;
+        @include Mobile {
+            gap: 7px;
+        }
+    }
+
+    .subtitle {
+        opacity: 0.7;
+        margin-left: 44px;
+    }
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #ede9fe, #f3f4f6);
+    border-radius: 12px;
+    color: $accent-color;
+    transition: all 0.3s ease;
+}
+
+.dropdownWrapper {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}

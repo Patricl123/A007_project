@@ -1,0 +1,74 @@
+.wrapper {
+    padding: 50px 50px 10px;
+    background-color: $dark-blue;
+
+    .top {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 80px;
+
+        @include Mobile {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .blockLogo {
+            max-width: 400px;
+
+            .logo {
+                margin-bottom: 10px;
+                height: 45px;
+
+                @include Mobile {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 0;
+                }
+
+                img {
+                    height: 100%;
+                }
+            }
+        }
+
+        .navBar {
+            max-width: 150px;
+
+            .sections {
+                margin-bottom: 10px;
+            }
+
+            li {
+                margin-top: 2px;
+            }
+        }
+
+        .contacts {
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            @include Mobile {
+                gap: 10px;
+            }
+        }
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        margin: 26px 0 13px;
+    }
+
+    .bottom {
+        text-align: center;
+    }
+}

@@ -1,0 +1,30 @@
+.label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #1f2937; /* текст: gray-800 */
+    display: inline-block;
+    margin-bottom: 4px;
+    @include Tablet {
+        font-size: 13px;
+    }
+
+    @include Mobile {
+        font-size: 12px;
+    }
+}
+
+.error {
+    color: #ef4444; /* red-500 */
+    @include Mobile {
+        font-size: 12px;
+    }
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    @include Mobile {
+        font-size: 12px;
+    }
+}

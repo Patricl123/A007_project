@@ -1,0 +1,172 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition:
+        background 0.2s,
+        color 0.2s,
+        border 0.2s;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1.5rem;
+
+    @include Tablet {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.25rem;
+    }
+
+    @include Mobile {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+    }
+}
+
+.default {
+    background: $gradient;
+    color: $white;
+
+    &:hover {
+        background: $gradient-hover;
+    }
+}
+
+.destructive {
+    background: $error;
+    color: $white;
+
+    &:hover {
+        background: $error-hover;
+    }
+}
+
+.outline {
+    background: $white;
+    color: $accent-color;
+    border: 1.5px solid $accent-color;
+
+    &:hover {
+        background: $white-hover;
+    }
+}
+
+.secondary {
+    background: $white;
+    color: $black;
+    border: 1.5px solid $white-hover;
+
+    &:hover {
+        background: $white-hover;
+    }
+}
+
+.ghost {
+    background: transparent;
+    color: $accent-color;
+
+    &:hover {
+        background: $white;
+    }
+}
+
+.link {
+    background: transparent;
+    color: $accent-color;
+    text-decoration: underline;
+    padding: 0;
+
+    &:hover {
+        color: $accent-color-hover;
+    }
+}
+
+.default,
+.destructive,
+.outline,
+.secondary,
+.ghost,
+.link {
+    min-width: 2.5rem;
+}
+
+.default:disabled,
+.destructive:disabled,
+.outline:disabled,
+.secondary:disabled,
+.ghost:disabled,
+.link:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.default:focus,
+.destructive:focus,
+.outline:focus,
+.secondary:focus,
+.ghost:focus,
+.link:focus {
+    box-shadow: 0 0 0 2px $accent-color;
+}
+
+.default:active,
+.destructive:active,
+.outline:active,
+.secondary:active,
+.ghost:active,
+.link:active {
+    transform: scale(0.98);
+}
+
+.default {
+    box-shadow: 0 2px 8px 0 rgba(99, 102, 241, 0.08);
+}
+
+.sm {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    height: 2.25rem;
+    @include Tablet {
+        font-size: 0.75rem;
+        height: 2rem;
+    }
+
+    @include Mobile {
+        font-size: 0.7rem;
+        height: 1.75rem;
+    }
+}
+
+.lg {
+    font-size: 1.125rem;
+    padding: 0.75rem 2rem;
+    height: 2.75rem;
+    @include Tablet {
+        font-size: 1rem;
+        height: 2.5rem;
+    }
+
+    @include Mobile {
+        font-size: 0.9rem;
+        height: 2.25rem;
+    }
+}
+
+.icon {
+    padding: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    @include Tablet {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    @include Mobile {
+        width: 2rem;
+        height: 2rem;
+    }
+}

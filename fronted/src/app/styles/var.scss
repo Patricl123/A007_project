@@ -1,0 +1,29 @@
+$gradient: linear-gradient(130deg, #2663eb 0%, #9233ea 100%);
+$gradient-hover: linear-gradient(130deg, #2257cb 0%, #772ac0 100%);
+$black: #1e2230;
+$dark-blue: #0f1323;
+$white: #fafcfc;
+$white-hover: #e0e5f0;
+$white-grey: #f6fafad2;
+$light-grey: #a5b2b7;
+$light-violet: #faf6ff;
+$border-violet: #e9d5ff;
+$violet: #9333ea;
+$icon-color: #dbdee0;
+$muted: #6f7583;
+$error: #f25555;
+$error-hover: #dc4040;
+$input: #eaecf1;
+$radius: 7px;
+$accent-color: #2663eb;
+$border: rgba($accent-color, 0.1);
+$border-hover: rgba($accent-color, 0.2);
+$accent-color-hover: #3f75e9;
+$box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+$box-shadow-hover:
+    0 12px 25px rgba($accent-color, 0.15),
+    0 5px 10px rgba(0, 0, 0, 0.1);
+
+$border-radius: 7px;

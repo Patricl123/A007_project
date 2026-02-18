@@ -1,0 +1,16 @@
+.card {
+    background-color: var(--light-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    @include Tablet {
+        padding: 1.25rem;
+        border-radius: 10px;
+    }
+
+    @include Mobile {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+}

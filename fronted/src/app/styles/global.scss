@@ -1,0 +1,21 @@
+@use './null.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+html,
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background-color: $white;
+}
+
+html {
+    overflow: -moz-scrollbar-none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.swiper-slide {
+    width: fit-content;
+}

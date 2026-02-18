@@ -1,0 +1,47 @@
+.container {
+    width: 100%;
+    .wrapper {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 5px;
+
+        @include Mobile {
+            justify-content: space-around;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            height: 45px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 7px;
+            transition: 0.2s ease-in;
+
+            @include Mobile {
+                flex-direction: column;
+                height: 50px;
+                gap: 5px;
+            }
+
+            &:hover {
+                background-color: $white-hover;
+            }
+
+            &.active {
+                background: $gradient;
+                color: $white !important;
+                p {
+                    color: $white;
+                }
+            }
+        }
+
+        .button {
+            border: 1px solid $border;
+        }
+    }
+}

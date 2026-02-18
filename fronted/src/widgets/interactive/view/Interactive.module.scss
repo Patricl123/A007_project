@@ -1,0 +1,49 @@
+.interactiveSection {
+    padding: 5rem;
+    @include Mobile {
+        padding: 2rem;
+    }
+}
+.inner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+    @include Tablet {
+        flex-direction: column;
+    }
+}
+.left {
+    width: 55%;
+    @include Tablet {
+        width: 100%;
+    }
+}
+.right {
+    width: 45%;
+    text-align: center;
+    background: linear-gradient(to bottom right, #dbeafe, #e9d5ff);
+    border-radius: 1rem;
+    padding: 1.2rem 2rem;
+    @include Tablet {
+        width: 100%;
+    }
+}
+.description {
+    margin: 1.5rem 0 2rem;
+}
+.buttonGroup {
+    display: flex;
+    gap: 1rem;
+    @include Mobile {
+        flex-direction: column;
+    }
+}
+.iconBook {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+.bookTitle {
+    margin-bottom: 8px;
+}
