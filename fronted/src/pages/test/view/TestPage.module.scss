@@ -1,0 +1,6 @@
+.testPage {
+    padding: 100px 0px;
+    @include Tablet {
+        padding: 90px 0px;
+    }
+}

@@ -1,0 +1,122 @@
+.loader {
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loaderContent {
+    text-align: center;
+    color: white;
+}
+
+.mathSymbols {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    @include Tablet {
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    @include Mobile {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+}
+
+.symbol {
+    font-size: 48px;
+    font-weight: bold;
+    animation: float 2s ease-in-out infinite;
+    @include Tablet {
+        font-size: 36px;
+    }
+
+    @include Mobile {
+        font-size: 28px;
+    }
+}
+
+.symbol:nth-child(1) {
+    animation-delay: 0s;
+    color: #ffd700;
+}
+
+.symbol:nth-child(2) {
+    animation-delay: 0.5s;
+    color: #ff6b6b;
+}
+
+.symbol:nth-child(3) {
+    animation-delay: 1s;
+    color: #4ecdc4;
+}
+
+.symbol:nth-child(4) {
+    animation-delay: 1.5s;
+    color: #45b7d1;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.progressBar {
+    width: 300px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto;
+    @include Tablet {
+        width: 260px;
+    }
+
+    @include Mobile {
+        width: 220px;
+    }
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ff6b6b, #4ecdc4, #45b7d1);
+    border-radius: 2px;
+    animation: loading 2s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% {
+        width: 0px;
+    }
+    50% {
+        width: 210px;
+    }
+    100% {
+        width: 300px;
+    }
+}
+
+@include Tablet {
+    .symbol {
+        font-size: 32px;
+    }
+
+    .mathSymbols {
+        gap: 15px;
+    }
+
+    .progressBar {
+        width: 250px;
+    }
+}

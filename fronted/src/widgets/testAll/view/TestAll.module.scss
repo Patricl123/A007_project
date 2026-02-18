@@ -1,0 +1,82 @@
+.testAll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    @include Tablet {
+        gap: 30px;
+    }
+    @include Mobile {
+        gap: 20px;
+    }
+
+    .textPart {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        position: relative;
+        @include Tablet {
+            gap: 8px;
+        }
+    }
+}
+
+.testList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 28px;
+    width: 100%;
+    max-width: 1200px;
+    place-items: center;
+    @include Tablet {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+.itemLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease;
+
+    &:focus-visible {
+        outline: 2px solid #9333ea;
+        outline-offset: 4px;
+        border-radius: 24px;
+    }
+}
+
+.userTestsSection {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 20px;
+    padding-top: 40px;
+    border-top: 2px solid rgba(147, 51, 234, 0.1);
+    @include Tablet {
+        padding-top: 24px;
+        gap: 24px;
+    }
+}
+
+.userTestsHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+}
+
+.userTestsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 28px;
+    width: 100%;
+    place-items: center;
+    @include Tablet {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}

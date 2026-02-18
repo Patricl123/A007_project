@@ -1,0 +1,164 @@
+.heroSection {
+    margin-top: 40px;
+    position: relative;
+    text-align: center;
+    padding: 5rem 5rem;
+    background: linear-gradient(
+        to bottom right,
+        #eff6ff,
+        /* from-blue-50 */ #eef2ff,
+        /* via-indigo-50 */ #f5f3ff /* to-purple-50 */
+    );
+    @include Mobile {
+        margin-top: 100px;
+        padding: 2rem;
+    }
+    @include Tablet {
+        margin-top: 60px;
+        padding: 3rem;
+    }
+    .description {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin: 1.5rem auto 2rem;
+        width: 80%;
+        @include Mobile {
+            width: 90%;
+            text-align: center;
+        }
+    }
+}
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.brainContainer {
+    position: relative;
+}
+
+.brainIcon {
+    width: 80px;
+    height: 80px;
+    background: $gradient;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(3deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.brainSvg {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.zapIcon {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 32px;
+    height: 32px;
+    background-color: #facc15;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zapSvg {
+    width: 16px;
+    height: 16px;
+    color: #78350f;
+}
+
+.gradientText {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.buttonGroup {
+    display: flex;
+
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    @include Tablet {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+.askButton {
+    @include Tablet {
+        width: 100%;
+    }
+}
+
+.icon {
+    margin: 0 0.5rem;
+    width: 20px;
+    height: 20px;
+}
+.list {
+    max-width: 850px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 60px auto 0;
+    gap: 64px;
+    &Title {
+        margin: 0 0 9px;
+    }
+    @include Tablet {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    @include Mobile {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+.listItem {
+    width: 250px;
+    height: 250px;
+    @include Tablet {
+        width: 100%;
+    }
+}
+.listIconWrapper {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+}
+.item1 {
+    background-color: #dbeafe;
+}
+.item2 {
+    background-color: #f3e8ff;
+}
+.item3 {
+    background-color: #e0e7ff;
+}
+.listIcon {
+    width: 2rem;
+    height: 2rem;
+}
+.oneI {
+    color: #2563eb;
+}
+.twoI {
+    color: #9333ea;
+}
+.threeI {
+    color: #4f46e5;
+}

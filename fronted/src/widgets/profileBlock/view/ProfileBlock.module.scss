@@ -1,0 +1,78 @@
+.wrapper {
+    max-width: 850px;
+    margin: 100px auto 30px;
+    border: 1px solid $border;
+    padding: 30px 40px;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+    box-shadow: $box-shadow;
+    transition: all 0.4s;
+
+    @include Mobile {
+        margin-top: 150px;
+        padding: 20px 20px;
+        width: 100%;
+    }
+
+    @include Tablet {
+        width: 80%;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(
+            45deg,
+            rgba(147, 51, 234, 0.1),
+            rgba(168, 85, 247, 0.05)
+        );
+        border-radius: 50%;
+        transition: all 0.6s ease;
+        opacity: 0;
+    }
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: $box-shadow-hover;
+        border-color: $border-hover;
+    }
+
+    .title {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 3px;
+
+        .userIcon {
+            flex-shrink: 0;
+            width: 45px;
+            height: 45px;
+            background: $gradient;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: $radius;
+        }
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 2px;
+
+        .label {
+            margin: 0;
+            font-weight: 600;
+        }
+    }
+}

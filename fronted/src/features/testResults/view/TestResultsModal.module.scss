@@ -1,0 +1,295 @@
+.content {
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 32px;
+    @include Tablet {
+        margin-bottom: 20px;
+    }
+    @include Mobile {
+        margin-bottom: 12px;
+    }
+}
+
+.testTitle {
+    margin-bottom: 8px;
+    color: #1e293b;
+    @include Tablet {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+    @include Mobile {
+        font-size: 15px;
+        margin-bottom: 2px;
+    }
+}
+
+.resultMessage {
+    color: #64748b;
+    font-weight: 500;
+}
+
+.scoreSection {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    @include Tablet {
+        margin-bottom: 18px;
+    }
+    @include Mobile {
+        margin-bottom: 10px;
+    }
+}
+
+.scoreCircle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    @include Tablet {
+        width: 120px;
+        height: 120px;
+    }
+    @include Mobile {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.scoreProgress {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--color) calc(var(--progress) * 1deg),
+        #e2e8f0 calc(var(--progress) * 1deg)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background: white;
+        border-radius: 50%;
+    }
+}
+
+.scoreText {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scoreNumber {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $accent-color;
+    line-height: 1;
+    @include Tablet {
+        font-size: 1.6rem;
+    }
+    @include Mobile {
+        font-size: 1.1rem;
+    }
+}
+
+.scoreTotal {
+    font-size: 1.2rem;
+    color: #64748b;
+    font-weight: 500;
+    @include Tablet {
+        font-size: 1rem;
+    }
+    @include Mobile {
+        font-size: 0.8rem;
+    }
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 32px;
+    @include Tablet {
+        gap: 20px;
+        margin-bottom: 18px;
+    }
+    @include Mobile {
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statLabel {
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.statValue {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    @include Tablet {
+        gap: 8px;
+    }
+    @include Mobile {
+        gap: 4px;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.2s ease-in-out infinite;
+    border-radius: 4px;
+}
+
+.shimmerTitle {
+    height: 28px;
+    width: 200px;
+    margin: 0 auto 8px auto;
+    border-radius: 6px;
+
+    @include Tablet {
+        height: 22px;
+        width: 160px;
+        margin-bottom: 4px;
+    }
+    @include Mobile {
+        height: 18px;
+        width: 120px;
+        margin-bottom: 2px;
+    }
+}
+
+.shimmerMessage {
+    height: 24px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 4px;
+
+    @include Tablet {
+        height: 20px;
+        width: 120px;
+    }
+    @include Mobile {
+        height: 18px;
+        width: 100px;
+    }
+}
+
+.shimmerCircle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 400px 400px;
+    animation: shimmer 1.2s ease-in-out infinite;
+
+    @include Tablet {
+        width: 120px;
+        height: 120px;
+        background-size: 240px 240px;
+    }
+    @include Mobile {
+        width: 80px;
+        height: 80px;
+        background-size: 160px 160px;
+    }
+}
+
+.shimmerCircleInner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: white;
+    border-radius: 50%;
+}
+
+.shimmerStatValue {
+    height: 28px;
+    width: 40px;
+    margin: 0 auto;
+    border-radius: 4px;
+
+    @include Tablet {
+        height: 24px;
+        width: 35px;
+    }
+    @include Mobile {
+        height: 20px;
+        width: 30px;
+    }
+}
+
+.shimmer,
+.shimmerCircle {
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent
+        );
+    }
+}
+
+.viewDetailsBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.testTitle,
+.resultMessage,
+.scoreProgress,
+.statValue {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.content {
+    &.loading {
+        .testTitle,
+        .resultMessage,
+        .scoreProgress,
+        .statValue {
+            opacity: 0;
+        }
+    }
+}

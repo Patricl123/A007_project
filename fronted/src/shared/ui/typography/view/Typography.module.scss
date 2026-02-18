@@ -1,0 +1,200 @@
+// Основные переменные для цветов и шрифтов
+$color-main: #0f172a;
+$color-secondary: #64748b;
+$color-muted: #94a3b8;
+$color-accent: #6366f1;
+$color-gray: #4b5563;
+$color-white: #fff;
+
+$font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
+
+* {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.h1 {
+    font-size: 3.75rem; // text-5xl
+    font-weight: 700;
+    line-height: 1.1;
+    color: $color-main;
+
+    @include Tablet {
+        font-size: 2.5rem;
+    }
+
+    @include Mobile {
+        font-size: 1.875rem;
+    }
+}
+
+.h2 {
+    font-size: 2.25rem; // text-3xl
+    font-weight: 700;
+    line-height: 1.15;
+    color: $color-main;
+
+    @include Tablet {
+        font-size: 1.875rem;
+    }
+
+    @include Mobile {
+        font-size: 1.5rem;
+    }
+}
+
+.h3 {
+    font-size: 1.5rem; // text-2xl
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-main;
+
+    @include Tablet {
+        font-size: 1.25rem;
+    }
+
+    @include Mobile {
+        font-size: 1.125rem;
+    }
+}
+
+.h4 {
+    font-size: 1.125rem; // text-lg
+    font-weight: 600;
+    line-height: 1.25;
+    color: $color-main;
+
+    @include Tablet {
+        font-size: 1rem;
+    }
+
+    @include Mobile {
+        font-size: 0.875rem;
+    }
+}
+
+.h5 {
+    font-size: 1rem; // text-base
+    font-weight: 600;
+    line-height: 1.3;
+    color: $color-main;
+
+    @include Tablet {
+        font-size: 0.875rem;
+    }
+
+    @include Mobile {
+        font-size: 0.75rem;
+    }
+}
+
+.large {
+    font-size: 1.25rem; // text-xl
+    font-weight: 400;
+    color: $color-gray;
+
+    @include Tablet {
+        font-size: 1rem;
+    }
+
+    @include Mobile {
+        font-size: 0.875rem;
+    }
+}
+
+.base {
+    font-size: 1rem; // text-base
+    font-weight: 400;
+    color: $color-gray;
+
+    @include Tablet {
+        font-size: 0.875rem;
+    }
+
+    @include Mobile {
+        font-size: 0.75rem;
+    }
+}
+
+.small {
+    font-size: 0.875rem; // text-sm
+    font-weight: 400;
+    color: $color-gray;
+
+    @include Tablet {
+        font-size: 0.75rem;
+    }
+
+    @include Mobile {
+        font-size: 0.625rem;
+    }
+}
+
+.smallXs {
+    font-size: 0.75rem; // text-xs
+    font-weight: 400;
+    color: $color-muted;
+
+    @include Tablet {
+        font-size: 0.625rem;
+    }
+
+    @include Mobile {
+        font-size: 0.5rem;
+    }
+}
+
+// Дополнительные утилиты
+.bold {
+    font-weight: 700;
+
+    @include Mobile {
+        font-weight: 600;
+    }
+}
+
+.semibold {
+    font-weight: 600;
+
+    @include Mobile {
+        font-weight: 500;
+    }
+}
+
+.regular {
+    font-weight: 400;
+}
+
+.center {
+    text-align: center;
+}
+
+.muted {
+    color: $color-muted;
+}
+
+.secondary {
+    color: $color-secondary;
+}
+
+.white {
+    color: $color-white;
+}
+
+.lightgrey {
+    color: $light-grey;
+}
+
+.gradient {
+    color: #9333ea;
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-blue {
+    background: linear-gradient(130deg, #2663eb 0%, #9233ea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
